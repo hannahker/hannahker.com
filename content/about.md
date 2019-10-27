@@ -2,11 +2,11 @@
 title: "About"
 date: 2018-02-13T13:42:49-05:00
 images:
-    - /posts/me.png
+    - /me.png
 ---
 ---
 
-![Ideas](/posts/me.png)
+![Ideas](/me.png)
 
 ---
 
