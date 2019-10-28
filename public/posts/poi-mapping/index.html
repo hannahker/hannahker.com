@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="A new Hugo site.">
+<title>
+Exploring Montreal&#39;s points of interest (P1) - topophilia
+</title>
+
+
+
+
+<link rel="shortcut icon" href="/%20">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.4a82f45929727f5744e93b96c4392d0b34d611bd482d98759a8bfbeb0fff684e.css" integrity="sha256-SoL0WSlyf1dE6TuWxDktCzTWEb1ILZh1mov76w//aE4=" crossorigin="anonymous" media="screen">
+
+
+
+ 
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/posts/pois-bar-chart.png"/>
+
+<meta name="twitter:title" content="Exploring Montreal&#39;s points of interest (P1)"/>
+<meta name="twitter:description" content="I take back what I said about mapping in R being easy. This map was a struggle.
+As someone with a lot of interest in OpenStreetMap (OSM), I thought that it would be interesting to play around with some of this data in R. The OSM data on points of interest (POIs) can be particularly rich, so I decided to focus here. With this analysis, I wanted to investigate the spatial distribution of different types of POIs and take a look at how the most common POIs differ across Montreal&rsquo;s boroughs."/>
+
+<meta property="og:title" content="Exploring Montreal&#39;s points of interest (P1)" />
+<meta property="og:description" content="I take back what I said about mapping in R being easy. This map was a struggle.
+As someone with a lot of interest in OpenStreetMap (OSM), I thought that it would be interesting to play around with some of this data in R. The OSM data on points of interest (POIs) can be particularly rich, so I decided to focus here. With this analysis, I wanted to investigate the spatial distribution of different types of POIs and take a look at how the most common POIs differ across Montreal&rsquo;s boroughs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/poi-mapping/" />
+
+<meta property="og:image" content="https://example.com/posts/pois-bar-chart.png" />
+
+<meta property="og:image" content="https://example.com/posts/mtl-poi-2.png" />
+<meta property="article:published_time" content="2019-10-26T12:41:46-05:00" />
+<meta property="article:modified_time" content="2019-10-26T12:41:46-05:00" /><meta property="og:site_name" content="topophilia" />
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Exploring Montreal&#39;s points of interest (P1)
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Exploring Montreal&#39;s points of interest (P1)</div>
+
+        
+<div class="section" id="content">
+    Sat Oct 26, 2019 &#183; 1117 words
+    
+    <hr/>
+    
+
+<p>I take back what I said about mapping in R being easy. This map was a struggle.</p>
+
+<p>As someone with a lot of interest in <a href="https://www.openstreetmap.org/#map=16/35.6200/139.1242">OpenStreetMap</a> (OSM), I thought that it would be interesting to play around with some of this data in R. The OSM data on points of interest (POIs) can be particularly rich, so I decided to focus here. With this analysis, I wanted to investigate the spatial distribution of different types of POIs and take a look at how the most common POIs differ across Montreal&rsquo;s boroughs.</p>
+
+<h3 id="preliminary-data-cleaning">Preliminary data cleaning</h3>
+
+<p>I downloaded the Quebec OSM dataset from <a href="https://www.geofabrik.de/">Geofabrik</a> and loaded the POIs (point) shapefile into RStudio. Note that there is also a shapefile of polygon POIs. In the interest of simplifying my exercise, I decided to just focus on the points.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">library</span>(sf)
+pois_2 <span style="color:#f92672">&lt;-</span> st_read(<span style="color:#e6db74">&#34;qc_data/gis_osm_pois_free_1.shp&#34;</span>)</code></pre></div>
+<p>I also downloaded administrative boundary shapefiles from <a href="https://gadm.org/data.html">GADM</a> so that I could clip my OSM data to just the island of Montreal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">boundary <span style="color:#f92672">&lt;-</span> st_read(<span style="color:#e6db74">&#34;admin/gadm36_CAN_2.shp&#34;</span>)</code></pre></div>
+<p>Based on the attributes for each polygon in the &lsquo;boundary&rsquo; shapefile, I selected a subset of just the island of Montreal. I then used this new &lsquo;mtl&rsquo; polygon to create a bounding box for the island. In order to subset my OSM data of POIs, I first clipped the POIs to the bounding box, leaving me with a bit of extra data around Montreal, but no longer all of the POI data for Quebec. I then clipped this data according to the specific geometry of Montreal.</p>
+
+<p>I&rsquo;m not sure that this extra bounding box step was strictly necessary, but I felt that it might reduce some of the processing time of the overall clip.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># get mtl subset</span>
+mtl <span style="color:#f92672">&lt;-</span> boundary[boundary<span style="color:#f92672">$</span>GID_2 <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;CAN.11.20_1&#34;</span>,]
+
+<span style="color:#75715e"># get the extent of mtl</span>
+mtl_extent <span style="color:#f92672">&lt;-</span> st_bbox(mtl)
+
+<span style="color:#75715e"># clip the datasets to bounding box of montreal</span>
+poi_pt_clip <span style="color:#f92672">&lt;-</span> st_crop(pois_2, mtl_extent)
+
+<span style="color:#75715e"># clip to montreal&#39;s geometry </span>
+poi_pt_clip <span style="color:#f92672">&lt;-</span> st_intersection(mtl, poi_pt_clip)</code></pre></div>
+<p>Within this dataset, each POI has a number of attributes in addition to location (in coordinates). One of these attributes categorizes each POI with a tag such as &ldquo;restaurant&rdquo; or &ldquo;alpine hut&rdquo;. I further subsetted the data to focus on these tags.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># explore the types of pois in montreal </span>
+types_pt <span style="color:#f92672">&lt;-</span> poi_pt_clip[(<span style="color:#e6db74">&#34;fclass&#34;</span>)]
+types_pt <span style="color:#f92672">&lt;-</span> st_drop_geometry(types_pt)</code></pre></div>
+<p>For each uniqe tag, I counted the total number of POIs and ordered them in decreasing frequency.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># count the number of times each poi occurs</span>
+count_pt <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">table</span>(types_pt<span style="color:#f92672">$</span>fclass)
+count_pt <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">as.data.frame</span>(count_pt)
+
+<span style="color:#75715e"># order in decreasing frequency</span>
+count_pt <span style="color:#f92672">&lt;-</span> count_pt[<span style="color:#66d9ef">order</span>(<span style="color:#f92672">-</span>count_pt<span style="color:#f92672">$</span>Freq),]</code></pre></div>
+<p>I wanted to visualize the frequency of all types POIs on a bar chart, but given that there were over 100 unique tags, this would be challenging to fit on a single chart. Instead, I took a sample of the top 25 most frequently occurring POI types.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># subset with the 25 most frequently occurring pois</span>
+count_pt_sub <span style="color:#f92672">&lt;-</span> count_pt[<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">25</span>,]</code></pre></div>
+<p>I plotted the frequency of each of these POI types on a vertical bar chart. I noticed however, that the tag for each POI wasn&rsquo;t in a very human-readable format. For a better looking graph, I wanted to convert each tag from a format such as &ldquo;post_box&rdquo; to &ldquo;Post Box&rdquo;.</p>
+
+<p>So, I wrote a function that would split a string at each underscore and capitalize the first letter of each word.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># function to reformat the text </span>
+humanize <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">function</span>(x) {
+  s <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">strsplit</span>(x, <span style="color:#e6db74">&#34;_&#34;</span>)[[<span style="color:#ae81ff">1</span>]]
+  <span style="color:#66d9ef">paste</span>(<span style="color:#66d9ef">toupper</span>(<span style="color:#66d9ef">substring</span>(s, <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)), <span style="color:#66d9ef">substring</span>(s, <span style="color:#ae81ff">2</span>),
+        sep<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>, collapse<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+}</code></pre></div>
+<p>I then wanted to loop through each tag in my dataframe and apply this function. Given, however, that the data in this column was stored as a <a href="https://www.tutorialspoint.com/r/r_factors.htm">factor</a> and not a list of strings, this took one more step than initially anticipated where I had to convert between these two data types.</p>
+
+<p>I won&rsquo;t admit how long it took me to figure out that this unexpected data type was the root of my error messages&hellip; There may have been a more effective way to manage data when it is stored as a factor, but I was eager to get back to the familiar list data type.</p>
+
+<p>With this conversion complete, I could then loop through the list of POI types and apply my function to &ldquo;humanize&rdquo; the strings.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># convert column from factor to character </span>
+count_pt_sub[<span style="color:#e6db74">&#34;Var1&#34;</span>] <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">sapply</span>(count_pt_sub[<span style="color:#e6db74">&#34;Var1&#34;</span>], <span style="color:#66d9ef">as.character</span>)
+
+<span style="color:#75715e"># implement humanize function to reformat text for Var1</span>
+<span style="color:#66d9ef">for</span> (i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#66d9ef">length</span>(count_pt_sub<span style="color:#f92672">$</span>Freq)){
+  count_pt_sub<span style="color:#f92672">$</span>Var1[i] <span style="color:#f92672">&lt;-</span> humanize(<span style="color:#66d9ef">as.character</span>(count_pt_sub<span style="color:#f92672">$</span>Var1[i]))
+}</code></pre></div>
+<h3 id="exploratory-visualization">Exploratory visualization</h3>
+
+<p>Finally time to visualize this data on a bar chart!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">library</span>(ggplot2)
+
+<span style="color:#75715e"># bar chart to visualize </span>
+p<span style="color:#f92672">&lt;-</span>ggplot(data<span style="color:#f92672">=</span>count_pt_sub, aes(x<span style="color:#f92672">=</span>Var1, y<span style="color:#f92672">=</span>Freq)) <span style="color:#f92672">+</span>
+  geom_bar(stat<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;identity&#34;</span>, fill<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;steelblue&#34;</span>)<span style="color:#f92672">+</span>
+  theme_minimal()
+p <span style="color:#f92672">+</span> coord_flip() <span style="color:#f92672">+</span> labs(y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Frequency&#34;</span>, x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Point of Interest&#34;</span>)</code></pre></div>
+<p>As this graph shows, apparently Montreal is dominated by restaurants, followed (bizarrely?) by benches. I&rsquo;m not surprised to see the high proportions of cafes, restaurants, and bars. Taking a look at this graph does give me some questions about POI tagging conventions in OSM. For instance, how is a bar differentiated from a pub (given that there are tags for both). I am quite surprised to see the high number of &ldquo;Camera Surveillance&rdquo; POIs, and wonder how this would compare with other cities&hellip;</p>
+
+<p><img src="/posts/pois-bar-chart.png" alt="Ideas" /></p>
+
+<h3 id="making-some-maps">Making some maps</h3>
+
+<p>To explore the data a bit further, I wanted to make some simple maps to show the spatial distribution of different types of POIs. After wrestling with the data so much previously, making some basic maps was quite straightforward (thanks to <a href="https://ggplot2.tidyverse.org/">ggplot2</a>).</p>
+
+<p>I wrote a function to take a couple of inputs, allowing me to quickly create unique maps for a given POI type.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># function to make a basic map </span>
+<span style="color:#75715e"># takes the poi tag from OSM data, title, and colour for the points</span>
+makemap <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">function</span>(poi, title, colour) {
+  
+  <span style="color:#75715e"># select the appropriate points</span>
+  to_map <span style="color:#f92672">&lt;-</span> poi_pt_clip[poi_pt_clip<span style="color:#f92672">$</span>fclass <span style="color:#f92672">==</span> poi,]
+  <span style="color:#75715e"># create the map, with mtl polygon as background</span>
+  p <span style="color:#f92672">&lt;-</span> ggplot(data<span style="color:#f92672">=</span>mtl)<span style="color:#f92672">+</span>
+    geom_sf(color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;white&#34;</span>, fill <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;#39424E&#34;</span>)<span style="color:#f92672">+</span>
+    geom_sf(data<span style="color:#f92672">=</span>to_map, size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.5</span>, shape <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, color <span style="color:#f92672">=</span> colour, alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">+</span>
+    theme_void()<span style="color:#f92672">+</span> 
+    ggtitle(title)
+  <span style="color:#75715e"># adjust colour and position of title </span>
+  p <span style="color:#f92672">&lt;-</span> p <span style="color:#f92672">+</span> theme(
+    plot.title <span style="color:#f92672">=</span> element_text(hjust <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>, color <span style="color:#f92672">=</span> colour)
+  )
+  <span style="color:#66d9ef">return</span>(p)
+}
+
+<span style="color:#75715e"># call the make map function </span>
+cameras <span style="color:#f92672">&lt;-</span> makemap(<span style="color:#e6db74">&#34;camera_surveillance&#34;</span>, <span style="color:#e6db74">&#34;Surveillance Cameras&#34;</span>, <span style="color:#e6db74">&#34;#cc9c0a&#34;</span>)
+ffood <span style="color:#f92672">&lt;-</span> makemap(<span style="color:#e6db74">&#34;fast_food&#34;</span>, <span style="color:#e6db74">&#34;Fast Food&#34;</span>, <span style="color:#e6db74">&#34;#69995d&#34;</span>)
+bench <span style="color:#f92672">&lt;-</span> makemap(<span style="color:#e6db74">&#34;bench&#34;</span>, <span style="color:#e6db74">&#34;Benches&#34;</span>, <span style="color:#e6db74">&#34;#6cd4ff&#34;</span>)
+pbox <span style="color:#f92672">&lt;-</span> makemap(<span style="color:#e6db74">&#34;post_box&#34;</span>, <span style="color:#e6db74">&#34;Post Boxes&#34;</span>, <span style="color:#e6db74">&#34;#aa4465&#34;</span>)</code></pre></div>
+<p>I finally used the gridExtra library to output a number of maps in a single, organized png.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># output maps in grid format</span>
+<span style="color:#f92672">library</span>(gridExtra)
+grid.arrange(cameras, ffood, bench, pbox, ncol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)</code></pre></div>
+<p>Unsurprisingly, each of the POI types here have dense clusters in Montreal&rsquo;s downtown area. I am assuming that the line of benches along the southeastern corner of Montreal follows the scenic area of the Lachine canal. The apparent regularity in the distribution of surveillance cameras northeast of downtown is also remarkable and may deserve some further investigation!</p>
+
+<p><img src="/posts/mtl-pois.png" alt="Ideas" /></p>
+
+</div>
+
+
+        
+<div class="section bottom-menu">
+    
+<hr />
+<p>
+
+
+    
+        <a href="/posts">back</a>
+        
+            &#183;
+        
+    
+
+    
+        
+            <a href="/posts">
+                posts
+            </a>
+        
+    
+    
+        
+            &#183; 
+            <a href="/projects">
+                projects
+            </a>
+        
+            &#183; 
+            <a href="/about">
+                about
+            </a>
+        
+    
+    &#183; 
+    <a href="https://example.com/">
+        main
+    </a>
+
+</p>
+</div>
+
+
+        <div class="section footer">Hannah Ker</div>
+    </div>
+</body>
+
+</html>

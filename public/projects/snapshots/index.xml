@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Travel snapshots on topophilia</title>
+    <link>https://example.com/projects/snapshots/</link>
+    <description>Recent content in Travel snapshots on topophilia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://example.com/projects/snapshots/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
