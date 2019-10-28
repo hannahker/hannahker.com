@@ -1,4 +1,4 @@
-baseurl                  = "hannahker.com"           # Your domain name. Must end with "/"
+baseurl                  = "hannahker.com/"           # Your domain name. Must end with "/"
 languageCode             = "en-us"
 defaultContentLanguage   = "en"
 isMultilingual           = false
@@ -21,16 +21,16 @@ pygmentsCodefences       = true
     title                = "topophilia"
 
 [[params.mainMenu]]
+    link = "/about"
+    text = "hi, i'm hannah"
+
+[[params.mainMenu]]
     link = "/posts"
-    text = "posts"
+    text = "my posts"
 
 [[params.mainMenu]]
     link = "/projects"
-    text = "projects"
-
-[[params.mainMenu]]
-    link = "/about"
-    text = "about"
+    text = "my projects"
 
 [imaging]
     quality = 100
