@@ -1,7 +1,7 @@
 ---
 title: "A basic web map in R"
 date: 2019-10-01T12:41:46-05:00
-showDate: true
+showDate: false
 images:
     - /posts/mural-map.png
 ---
@@ -63,9 +63,11 @@ murals_map <- leaflet(murals) %>%
   )
 ```
 
-Follow [this](https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html) link to check out the full interactive version of this map and take a look at the [full code](https://github.com/hannahker/casa-gis/blob/master/leaflet-maps/leaflet-mapping.R) on GitHub.
+Follow [this](https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html) link to check out the full interactive version of this map. Some of this code is adapted from Chapter 2 of our CASA0005 [practical book](https://andrewmaclachlan.github.io/CASA0005repo/).
 
-Some of this code is adapted from Chapter 2 of our CASA0005 [practical book](https://andrewmaclachlan.github.io/CASA0005repo/).
+--- 
+
+*Check out the full code for this exercise [here](https://github.com/hannahker/casa-gis/blob/master/leaflet-maps/leaflet-mapping.R)*
 
 
 

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on topophilia</title>
-    <link>hannahker.com/posts/</link>
+    <link>https://hannahker.com/posts/</link>
     <description>Recent content in Posts on topophilia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Feb 2018 12:21:57 -0500</lastBuildDate>
     
-	<atom:link href="hannahker.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hannahker.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploring Montreal&#39;s points of interest (P1)</title>
-      <link>hannahker.com/posts/poi-mapping/</link>
+      <link>https://hannahker.com/posts/poi-mapping/</link>
       <pubDate>Sat, 26 Oct 2019 12:41:46 -0500</pubDate>
       
-      <guid>hannahker.com/posts/poi-mapping/</guid>
+      <guid>https://hannahker.com/posts/poi-mapping/</guid>
       <description>I take back what I said about mapping in R being easy. This map was a struggle.
 As someone with a lot of interest in OpenStreetMap (OSM), I thought that it would be interesting to play around with some of this data in R. The OSM data on points of interest (POIs) can be particularly rich, so I decided to focus here. With this analysis, I wanted to investigate the spatial distribution of different types of POIs and take a look at how the most common POIs differ across Montreal&amp;rsquo;s boroughs.</description>
     </item>
     
     <item>
       <title>A basic web map in R</title>
-      <link>hannahker.com/posts/html-post/</link>
+      <link>https://hannahker.com/posts/html-post/</link>
       <pubDate>Tue, 01 Oct 2019 12:41:46 -0500</pubDate>
       
-      <guid>hannahker.com/posts/html-post/</guid>
+      <guid>https://hannahker.com/posts/html-post/</guid>
       <description>As it turns out, mapping in R is (almost) totally easy!
 Some months ago, I found a dataset of all of the locations of Montreal&amp;rsquo;s publicly commissioned murals on the city&amp;rsquo;s open data portal. As someone who has very much enjoyed many of these murals, I&amp;rsquo;ve been looking forward to creating an interactive web map with this data for quite a while. My recent foray into the world of spatial analysis in R (thanks to my GIS module this semester) showed me a simple way to create a basic, but quite nice looking, web map using the Leaflet library for R.</description>
     </item>
     
     <item>
       <title>Kevin Lynch and my image of London</title>
-      <link>hannahker.com/posts/image-post/</link>
+      <link>https://hannahker.com/posts/image-post/</link>
       <pubDate>Thu, 26 Sep 2019 12:41:46 -0500</pubDate>
       
-      <guid>hannahker.com/posts/image-post/</guid>
+      <guid>https://hannahker.com/posts/image-post/</guid>
       <description>Given that I can&amp;rsquo;t get enough of Kevin Lynch&amp;rsquo;s &amp;ldquo;Image of the City&amp;rdquo;, I thought that I would start off my time in London by drawing my own mental map of the city. This map is based on my experiences after being in London for less than a week (so cut me some slack).
 Unsurprisingly, my residence at Goodenough College features most prominently in my mental map of London. The Charles Dickens Museum, just down the street, has served as a handy landmark assuring me that I am on the right track when on my way home.</description>
     </item>

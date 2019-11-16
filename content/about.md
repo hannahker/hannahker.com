@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "hi, i'm hannah"
 date: 2018-02-13T13:42:49-05:00
 images:
     - /me.png
@@ -10,9 +10,7 @@ images:
 
 ---
 
-I'm Hannah Ker. 
-
-This is a personal portfolio/blog where I can showcase (mostly for my family...) things that I'm working on and learning.  
+This is a personal portfolio/blog where I can showcase things that I'm working on and learning.  
 
 ### Currently
 
@@ -28,5 +26,9 @@ My previous education is in urban geography, which I studied at McGill Universit
 
 I'm passionate about the humanitarian applications of geospatial data and technologies, and have volunteered with the [Humanitarian OpenStreetMap Team](https://www.hotosm.org/) and [Missing Maps](https://www.missingmaps.org/). 
 
-If it involves maps or boats, I'm there.  
+If it involves maps or boats, I'm there. 
+
+---
+
+*You can find more details about me on [Linkedin](https://ca.linkedin.com/in/hannah-ker-991007115), [Twitter](https://twitter.com/hannahker11), and [Github](https://github.com/hannahker).*
 

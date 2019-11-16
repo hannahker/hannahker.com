@@ -2,7 +2,7 @@ baseurl                  = "https://hannahker.com/"           # Your domain name
 languageCode             = "en-us"
 defaultContentLanguage   = "en"
 isMultilingual           = false
-title                    = "topophilia"
+title                    = "Hannah Ker"
 theme                    = "sam"
 pygmentsStyle            = "monokai"                        # https://help.farbox.com/pygments.html
 pygmentsCodefences       = true
@@ -18,7 +18,7 @@ pygmentsCodefences       = true
 # Metadata for Open Graph and Twitter
     description          = "A new Hugo site."               # Max 160 characters show in search results
     images               = ["tn.png"]                       # Image that shows on Twitter cards and Open Graph links to the site
-    title                = "topophilia"
+    title                = "Hannah Ker"
 
 [[params.mainMenu]]
     link = "/about"
@@ -26,11 +26,11 @@ pygmentsCodefences       = true
 
 [[params.mainMenu]]
     link = "/posts"
-    text = "my posts"
+    text = "cartography"
 
 [[params.mainMenu]]
     link = "/projects"
-    text = "my projects"
+    text = "research"
 
 [imaging]
     quality = 100
