@@ -6,6 +6,8 @@ images:
     - /posts/mural-map.png
 ---
 
+[See the full map here!](https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html) 
+
 ![Ideas](/posts/mural-map.png)
 
 ---
