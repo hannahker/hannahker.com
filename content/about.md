@@ -8,9 +8,7 @@ images:
 
 ![Ideas](/me.png)
 
----
-
-This is a personal portfolio/blog where I can showcase things that I'm working on and learning.  
+---  
 
 ### Currently
 
@@ -20,7 +18,7 @@ While living in London, I am a resident of [Goodenough College](https://www.good
 
 ### Previously 
 
-I most recently worked in the non-profit sector at [OpenNorth](https://www.opennorth.ca/) as an Open Data Analyst. In this role I worked on various projects to improve data literacy in government, both in Canada and abroad.
+I most recently worked in the non-profit sector at [OpenNorth](https://www.opennorth.ca/) as an Open Data Analyst. In this role I worked on various projects to improve data literacy in government, both in Canada and abroad. 
 
 My previous education is in urban geography, which I studied at McGill University in Montreal. I completed an [Honours Thesis](https://www.mcgill.ca/geography/files/geography/ker_hannah_2018_honoursabstract.pdf) on local perceptions of Montreal's built environment under the supervision of Dr. Renee Sieber and Dr. Raja Sengupta. While at McGill, I was heavily involved with the competitive [sailing team](http://mcgillsailing.org/) and the [Open Mapping Group of McGill](https://www.facebook.com/omgMcGill/). 
 

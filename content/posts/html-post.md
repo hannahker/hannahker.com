@@ -1,5 +1,5 @@
 ---
-title: "A basic web map in R"
+title: "Interactive map of murals in Montreal"
 date: 2019-10-01T12:41:46-05:00
 showDate: false
 images:
