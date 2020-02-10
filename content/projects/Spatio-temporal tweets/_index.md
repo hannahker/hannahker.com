@@ -17,9 +17,9 @@ In this project, I was interested in exploring the spatial and temporal characte
 
 ### Theories in spatiotemporal GIS
 
-Any geospatial inquiry relating to phenomena such as movement, change, event, or process must consider both space and time. It is challenging, however, to combine spatial and temporal attributes of data to learn about spatiotemporal geographic phenomena. The metaphor of the map has been a longstanding conceptual framework for GIS and geography[^1]. As maps are largely static representations of geographic entities, frameworks for rigorous spatiotemporal analyses have often been overlooked [^1][^2][^3].
+Any geospatial inquiry relating to phenomena such as movement, change, event, or process must consider both space and time. It is challenging, however, to combine spatial and temporal attributes of data to learn about spatiotemporal geographic phenomena. The metaphor of the map has been a longstanding conceptual framework for GIS and geography.[^1] As maps are largely static representations of geographic entities, frameworks for rigorous spatiotemporal analyses have often been overlooked.[^1][^2][^3]
 
-GIS often relies on the 'snapshot' model to communicate changes over space and time[^4]. With this model, change is identified by comparing various data layers sharing the same spatial extent but different temporal attributes. While this approach may be suitable for investigating phenomena such as land use change, it is insufficient in capturing the dynamic nature of phenomena such as events, movement, and process. 
+GIS often relies on the 'snapshot' model to communicate changes over space and time.[^4] With this model, change is identified by comparing various data layers sharing the same spatial extent but different temporal attributes. While this approach may be suitable for investigating phenomena such as land use change, it is insufficient in capturing the dynamic nature of phenomena such as events, movement, and process. 
 
 In this project I have attemped to move beyond this 'snapshot' model of spatiotemporal data analysis and representation. The approach presented in this project aligns with the aims of temporal GIS in that it challenges the primacy of static spatial representations and presents a means to more rigorously investigate time within a GIScience investigation. 
 
@@ -33,7 +33,7 @@ I used R to create basic data visualizations to explore the spatial and temporal
 
 ![Ideas](tweet-hist.png)
 
-I then detected spatio-temporal clusters using space-time scan statistics[^5], implemented with the freely available [SaTScan](https://www.satscan.org/) software. I selected the top 100 most statistically significant clusters and analyzed the text content of the tweets in each cluster to determine whether or not a given cluster corresponded to a real-world event. Overall, I found 18 clusters that corresponded to real events. The first figure in this post shows how each of these event clusters occupies a distinct spatio-temporal region. 
+I then detected spatio-temporal clusters using space-time scan statistics,[^5] implemented with the freely available [SaTScan](https://www.satscan.org/) software. I selected the top 100 most statistically significant clusters and analyzed the text content of the tweets in each cluster to determine whether or not a given cluster corresponded to a real-world event. Overall, I found 18 clusters that corresponded to real events. The first figure in this post shows how each of these event clusters occupies a distinct spatio-temporal region. 
 
 These findings are likely due to increased concentrations of people tweeting during an event, from the same place and during the same time period. 
 
