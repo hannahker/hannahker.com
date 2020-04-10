@@ -33,7 +33,7 @@ bounds <- as_Spatial(bounds[bounds$NAME_1=='British Columbia',]) # subset the po
 
 The ultimate visualization goal was to have the area of interest 'rise' up above the rest of the (blank) background, leaving a shadowed border. This look is inspired by the gorgeous maps of a similar style from [Scott Reinhard](https://scottreinhardmaps.com/). This can be achieved in Blender by reclassifying all data outside of the area of interest to have an elevation of 0. 
 
-The first task is to create a bounding box, extending on each side just beyond the bounds of the administrative boundary. For standardization across multiple maps, I also created a function to transform this rectangula bounding box into a square, by evenly extending the length of the shortest side.  
+The first task is to create a bounding box, extending on each side just beyond the bounds of the administrative boundary. For standardization across multiple maps, I also created a function to transform this rectangular bounding box into a square, by evenly extending the length of the shortest side.  
 ```r
 ext <- extent(bounds)*1.2 # get extent of polygon
 
@@ -69,14 +69,14 @@ box <- crop(grid, makesquare(ext)) # clip the raster by the square extent
 
 Now, I won't pretend to have mastered working with raster datasets in R, so this next bit is rather convoluted. I needed to transform the elevation values to be within the range of 0 - 65535 (for input to Blender, as explained by Daniel Huffman's tutorial), with all the pixels outside of the administrative boundary to be classified as 0. 
 
-I had a hard time trying to select all pixels that were **outside** of the administrative boundary, so I instead set all pixels **within** the boundary to an arbitrarily small value that definitely wouldn't be part of the real data. 
+I had a hard time trying to select all pixels that were **outside** of the administrative boundary, so here we instead set all pixels **within** the boundary to an arbitrarily small value that definitely wouldn't be part of the real data. 
 
 ```r
 box <- round((box-minValue(box))/(maxValue(box)-minValue(box))*65535) # rescale and round to 0 - 65535 range 
 box[bounds[,]] <- -10000 # set values within the polygon to be -10,000
 ```
 
-I then reclassified these values to be 0, and created a layer with the values inside the area of interest as 1. 
+We then reclassify these values to be 0, and create a layer where the values inside the area of interest are set as 1. 
 
 ```r
 m <- c(-9999, maxValue(box), 0) # reclasify values (min, max, new)
@@ -86,7 +86,7 @@ reclass <- reclassify(box, m, right = T) # set all values outside area of intere
 area <- reclass==-10000 # values at 1 within the area of interest and 0 outside
 ```
 
-Finally, I multiplied this layer with just 1's and 0's with the layer with rescaled elevation values. I then exported this later to a .tif file. 
+Finally, we multiply this layer with just 1's and 0's with the layer with rescaled elevation values. We then export this later to a .tif file. 
 
 ```r
 area <- area*copy
