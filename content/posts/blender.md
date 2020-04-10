@@ -12,7 +12,7 @@ images:
 
 I've stepped up from my previous work with rayshader, instead using Blender to create a similarly-styled elevation map. This work is drawn heavily from the [amazing tutorial](https://somethingaboutmaps.wordpress.com/2017/11/16/creating-shaded-relief-in-blender/) from Daniel Huffman, as well as the Blender [tutorial materials](https://www.mapmakerdavid.com/) from David Garcia. Aside from some styling at the end, I followed this material pretty closely, so I won't bother replicating the walkthrough. 
 
-I used elevation data from [GEBCO](https://www.gebco.net/data_and_products/gridded_bathymetry_data/#area), which has a very handy tool for selecting data for a given area using a bounding box. This data also includes sea level elevation (bathymetry). The resolution is relatively course, at 15 arc-seconds (approx 450m per pixel), so is best for larger areas. Administrative boundaries are from [GADM](https://gadm.org/data.html). 
+I used elevation data from [GEBCO](https://www.gebco.net/data_and_products/gridded_bathymetry_data/#area), which has a very handy tool for selecting data for a given area using a bounding box. This data also includes sea level elevation (bathymetry). The resolution is relatively coarse, at 15 arc-seconds (approx 450m per pixel), so is best for larger areas. Administrative boundaries are from [GADM](https://gadm.org/data.html). 
 
 In addition to rendering the data in Blender according to the tutorials linked above, I created a short script in R for preprocessing. 
 
