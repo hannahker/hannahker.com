@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>topophilia</title>
+    <title>Hannah Ker</title>
     <link>https://hannahker.com/</link>
-    <description>Recent content on topophilia</description>
+    <description>Recent content on Hannah Ker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Oct 2019 12:41:46 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 12:41:46 -0500</lastBuildDate>
     
 	<atom:link href="https://hannahker.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Exploring Montreal&#39;s points of interest (P1)</title>
-      <link>https://hannahker.com/posts/poi-mapping/</link>
-      <pubDate>Sat, 26 Oct 2019 12:41:46 -0500</pubDate>
+      <title>Shaded relief in Blender and R</title>
+      <link>https://hannahker.com/posts/blender/</link>
+      <pubDate>Wed, 01 Apr 2020 12:41:46 -0500</pubDate>
       
-      <guid>https://hannahker.com/posts/poi-mapping/</guid>
-      <description>I take back what I said about mapping in R being easy. This map was a struggle.
-As someone with a lot of interest in OpenStreetMap (OSM), I thought that it would be interesting to play around with some of this data in R. The OSM data on points of interest (POIs) can be particularly rich, so I decided to focus here. With this analysis, I wanted to investigate the spatial distribution of different types of POIs and take a look at how the most common POIs differ across Montreal&amp;rsquo;s boroughs.</description>
+      <guid>https://hannahker.com/posts/blender/</guid>
+      <description>I&amp;rsquo;ve stepped up from my previous work with rayshader, instead using Blender to create a similarly-styled elevation map. This work is drawn heavily from the amazing tutorial from Daniel Huffman, as well as the Blender tutorial materials from David Garcia. Aside from some styling at the end, I followed this material pretty closely, so I won&amp;rsquo;t bother replicating the walkthrough.
+I used elevation data from GEBCO, which has a very handy tool for selecting data for a given area using a bounding box.</description>
     </item>
     
     <item>
-      <title>A basic web map in R</title>
+      <title>A minimal map of Vancouver&#39;s street trees</title>
+      <link>https://hannahker.com/posts/trees-map/</link>
+      <pubDate>Tue, 14 Jan 2020 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/posts/trees-map/</guid>
+      <description>I have been a long-time admirer of the &amp;lsquo;Minimal Maps&amp;rsquo; series from Michael Pecirno, and wanted to try to recreate something similar. I really liked his focus on the natural environment and spent a while exploring potential datasets, at a variety of scales. I eventually settled on this dataset of street trees in Vancouver. This dataset has one point for every public tree on Vancouver&amp;rsquo;s boulevards (there are over 140,000!</description>
+    </item>
+    
+    <item>
+      <title>Road network visualizations with OSMnx</title>
+      <link>https://hannahker.com/posts/osmnx/</link>
+      <pubDate>Tue, 29 Oct 2019 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/posts/osmnx/</guid>
+      <description>It&amp;rsquo;s so satisfying to make some nice looking maps. This time I returned to the more familiar Python and played around with the fabulous OSMnx package from Geoff Boeing. OSMnx is a package for accessing, processing, analyzing, and visualizing road network and building footprint data from OpenStreetMap. This package is very well-documented with many examples, so it was simple enough to get started.
+The code that I used to create these maps was pretty much taken directly from this example on Github.</description>
+    </item>
+    
+    <item>
+      <title>Interactive map of murals in Montreal</title>
       <link>https://hannahker.com/posts/html-post/</link>
       <pubDate>Tue, 01 Oct 2019 12:41:46 -0500</pubDate>
       
       <guid>https://hannahker.com/posts/html-post/</guid>
-      <description>As it turns out, mapping in R is (almost) totally easy!
+      <description>See the full map here!
+As it turns out, mapping in R is (almost) totally easy!
 Some months ago, I found a dataset of all of the locations of Montreal&amp;rsquo;s publicly commissioned murals on the city&amp;rsquo;s open data portal. As someone who has very much enjoyed many of these murals, I&amp;rsquo;ve been looking forward to creating an interactive web map with this data for quite a while. My recent foray into the world of spatial analysis in R (thanks to my GIS module this semester) showed me a simple way to create a basic, but quite nice looking, web map using the Leaflet library for R.</description>
     </item>
     
@@ -42,15 +62,52 @@ Unsurprisingly, my residence at Goodenough College features most prominently in 
     </item>
     
     <item>
-      <title>About</title>
+      <title>Emotional Cartography: Mapping Feelings of Anxiety in London</title>
+      <link>https://hannahker.com/research/emotion/</link>
+      <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/research/emotion/</guid>
+      <description>Only when emotions, feelings, values, and ethics as well as a commitment to social justice become integral elements of our geospatial practices will moral geospatial practices become possible. Only then can GT help create a less violent and more just world. 1
+Overview Our experience of inhabiting space in cities is unique and subjective. The meaning, memories, and emotions that we attach to our surroundings impact the ways that we engage and interact with them.</description>
+    </item>
+    
+    <item>
+      <title>Event Detection through a Spatiotemporal Analysis of Geotagged Tweets</title>
+      <link>https://hannahker.com/research/spatio-temporal/</link>
+      <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/research/spatio-temporal/</guid>
+      <description>Overview In this project, I was interested in exploring the spatial and temporal characteristics of tweets in London over a week-long time period. I analyzed the clustering patterns of approximately 40,000 tweets in both space and time. I found many clusters that could be linked to specific events taking place in the city. For example, I was able to detect events such as a West Ham vs Watford football game and an Adam Lambert concert.</description>
+    </item>
+    
+    <item>
+      <title>Mapping Montreal&#39;s Legibility using Google Street View</title>
+      <link>https://hannahker.com/research/legibility/</link>
+      <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/research/legibility/</guid>
+      <description>This project was an investigation into the ways that we perceive and understand the urban landscapes around us.
+Overview In his seminal book, The Image of the City, Kevin Lynch identified legibility as an important characteristic of pleasurable and engaging cities1. Legibility is the perceptual quality of urban landscapes that makes them remarkable and distinctive. A city made up of highly legible environments will be clearly imagined in the minds of those that live within it.</description>
+    </item>
+    
+    <item>
+      <title>hi, i&#39;m hannah</title>
       <link>https://hannahker.com/about/</link>
       <pubDate>Tue, 13 Feb 2018 13:42:49 -0500</pubDate>
       
       <guid>https://hannahker.com/about/</guid>
-      <description>I&amp;rsquo;m Hannah Ker.
-This is a personal portfolio/blog where I can showcase (mostly for my family&amp;hellip;) things that I&amp;rsquo;m working on and learning.
-Currently I&amp;rsquo;m pursuing my MSc in Spatial Data Science and Visualization, at UCL&amp;rsquo;s Centre for Advanced Spatial Analysis. I look forward to expanding my skills in GIS, data visualuzation, and quantitative methods, which I hope to apply to make cities more resilient and equitable.
+      <description>Currently I am pursuing my MSc in Spatial Data Science and Visualization at UCL&amp;rsquo;s Centre for Advanced Spatial Analysis. I look forward to expanding my skills in GIS, data visualization, and quantitative methods, which I hope to apply to make cities more resilient and equitable.
 While living in London, I am a resident of Goodenough College, thanks in part to generous funding from the London Goodenough Association of Canada.</description>
+    </item>
+    
+    <item>
+      <title>Cultural Landscapes and Montreal&#39;s Orange Julep Restaurant</title>
+      <link>https://hannahker.com/research/oj/</link>
+      <pubDate>Sun, 19 Feb 2017 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/research/oj/</guid>
+      <description>Landscape allows and even encourages us to dream. 1
+This quote from the renowned geographer, Yi-Fu Tuan, provides a useful starting point from which to examine the significance of the Orange Julep. While the Orange Julep is a unique building in the midst of a bland urban highway landscape, its existence is so much more than what meets the eye. The fantasy and imagination surrounding the Julep is what gives this Montreal landmark its true significance.</description>
     </item>
     
   </channel>

@@ -11,7 +11,7 @@
 <meta name="referrer" content="no-referrer">
 <meta name="description" content="A new Hugo site.">
 <title>
-A basic web map in R - topophilia
+Interactive map of murals in Montreal - Hannah Ker
 </title>
 
 
@@ -26,7 +26,7 @@ A basic web map in R - topophilia
 
 
 
-<link rel="stylesheet" href="/css/main.min.4a82f45929727f5744e93b96c4392d0b34d611bd482d98759a8bfbeb0fff684e.css" integrity="sha256-SoL0WSlyf1dE6TuWxDktCzTWEb1ILZh1mov76w//aE4=" crossorigin="anonymous" media="screen">
+<link rel="stylesheet" href="/css/main.min.800295cd7499aa8a9577fa052e0f9055c7c2dcfee91406d194d968d69bca045f.css" integrity="sha256-gAKVzXSZqoqVd/oFLg&#43;QVcfC3P7pFAbRlNlo1pvKBF8=" crossorigin="anonymous" media="screen">
 
 
 
@@ -35,21 +35,25 @@ A basic web map in R - topophilia
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hannahker.com/posts/mural-map.png"/>
+<meta name="twitter:image" content="https://hannahker.com/posts/mural-map-small.png"/>
 
-<meta name="twitter:title" content="A basic web map in R"/>
-<meta name="twitter:description" content="As it turns out, mapping in R is (almost) totally easy!
+<meta name="twitter:title" content="Interactive map of murals in Montreal"/>
+<meta name="twitter:description" content="See the full map here!
+As it turns out, mapping in R is (almost) totally easy!
 Some months ago, I found a dataset of all of the locations of Montreal&rsquo;s publicly commissioned murals on the city&rsquo;s open data portal. As someone who has very much enjoyed many of these murals, I&rsquo;ve been looking forward to creating an interactive web map with this data for quite a while. My recent foray into the world of spatial analysis in R (thanks to my GIS module this semester) showed me a simple way to create a basic, but quite nice looking, web map using the Leaflet library for R."/>
 
-<meta property="og:title" content="A basic web map in R" />
-<meta property="og:description" content="As it turns out, mapping in R is (almost) totally easy!
+<meta property="og:title" content="Interactive map of murals in Montreal" />
+<meta property="og:description" content="See the full map here!
+As it turns out, mapping in R is (almost) totally easy!
 Some months ago, I found a dataset of all of the locations of Montreal&rsquo;s publicly commissioned murals on the city&rsquo;s open data portal. As someone who has very much enjoyed many of these murals, I&rsquo;ve been looking forward to creating an interactive web map with this data for quite a while. My recent foray into the world of spatial analysis in R (thanks to my GIS module this semester) showed me a simple way to create a basic, but quite nice looking, web map using the Leaflet library for R." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hannahker.com/posts/html-post/" />
 
+<meta property="og:image" content="https://hannahker.com/posts/mural-map-small.png" />
+
 <meta property="og:image" content="https://hannahker.com/posts/mural-map.png" />
 <meta property="article:published_time" content="2019-10-01T12:41:46-05:00" />
-<meta property="article:modified_time" content="2019-10-01T12:41:46-05:00" /><meta property="og:site_name" content="topophilia" />
+<meta property="article:modified_time" content="2019-10-01T12:41:46-05:00" /><meta property="og:site_name" content="Hannah Ker" />
 
 
     
@@ -59,21 +63,23 @@ Some months ago, I found a dataset of all of the locations of Montreal&rsquo;s p
     
     <title>
         
-        A basic web map in R
+        Interactive map of murals in Montreal
         
     </title>
 </head>
 
 <body>
     <div class="wrap">
-        <div class="section" id="title">A basic web map in R</div>
+        <div class="section" id="title">Interactive map of murals in Montreal</div>
 
         
 <div class="section" id="content">
-    Tue Oct 01, 2019 &#183; 530 words
+    Tue Oct 01, 2019 &#183; 534 words
     
     <hr/>
-    <p><img src="/posts/mural-map.png" alt="Ideas" /></p>
+    <p><a href="https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html">See the full map here!</a></p>
+
+<p><img src="/posts/mural-map.png" alt="" /></p>
 
 <hr />
 
@@ -119,9 +125,11 @@ murals_map <span style="color:#f92672">&lt;-</span> leaflet(murals) <span style=
             <span style="color:#75715e"># change the default number formatting in the legend to get rid of the comma </span>
             labFormat <span style="color:#f92672">=</span> labelFormat(big.mark <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>)
   )</code></pre></div>
-<p>Follow <a href="https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html">this</a> link to check out the full interactive version of this map and take a look at the <a href="https://github.com/hannahker/casa-gis/blob/master/leaflet-maps/leaflet-mapping.R">full code</a> on GitHub.</p>
+<p>Follow <a href="https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html">this</a> link to check out the full interactive version of this map. Some of this code is adapted from Chapter 2 of our CASA0005 <a href="https://andrewmaclachlan.github.io/CASA0005repo/">practical book</a>.</p>
 
-<p>Some of this code is adapted from Chapter 2 of our CASA0005 <a href="https://andrewmaclachlan.github.io/CASA0005repo/">practical book</a>.</p>
+<hr />
+
+<p><em>Check out the full code for this exercise <a href="https://github.com/hannahker/casa-gis/blob/master/leaflet-maps/leaflet-mapping.R">here</a></em></p>
 
 </div>
 
@@ -151,12 +159,12 @@ murals_map <span style="color:#f92672">&lt;-</span> leaflet(murals) <span style=
         
             &#183; 
             <a href="/posts">
-                my posts
+                cartography
             </a>
         
             &#183; 
-            <a href="/projects">
-                my projects
+            <a href="/research">
+                research
             </a>
         
     
