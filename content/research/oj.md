@@ -4,7 +4,6 @@ date: 2017-02-19T12:41:46-05:00
 showDate: false
 tags: ["blog","story"]
 images:
-    - /research/orange-small.png
     - /research/orange.png
     - /research/cup.png
 
