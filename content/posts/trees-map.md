@@ -3,7 +3,9 @@ title: "A minimal map of Vancouver's street trees"
 date: 2020-01-14T12:41:46-05:00
 showDate: false
 images:
+    - /posts/trees-small.png
     - /posts/trees.png
+    
 ---
 
 ![Ideas](/posts/trees.png)

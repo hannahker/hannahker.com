@@ -2,11 +2,12 @@
 title: "Elevation in Kathmandu with Rayshader"
 date: 2020-02-23T12:41:46-05:00
 showDate: false
+draft: true
 images:
     - /posts/kathmandu.png
 ---
 
-![Ideas](/posts/kathmandu.png)
+![](/posts/kathmandu.png)
 
 ---
 

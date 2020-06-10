@@ -3,7 +3,9 @@ title: "Shaded relief in Blender and R"
 date: 2020-04-01T12:41:46-05:00
 showDate: false
 images:
+    - /posts/blender-small.png
     - /posts/blender.png
+    
 ---
 
 ![Ideas](/posts/blender.png)

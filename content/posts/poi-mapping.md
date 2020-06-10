@@ -2,7 +2,9 @@
 title: "Exploring Montreal's points of interest"
 date: 2019-10-26T12:41:46-05:00
 showDate: false
+draft: true
 images:
+    - /posts/surveillance.png
     - /posts/pois-bar-chart.png
     - /posts/playgrounds.png
     - /posts/ah-west-chart.png
@@ -10,7 +12,7 @@ images:
     - /posts/pc.png
 ---
 
-![Ideas](/posts/playgrounds.png)
+![](/posts/playgrounds.png)
 
 ---
 
@@ -106,7 +108,7 @@ library(ggplot2)
     theme_map()
 ```
 
-![Ideas](/posts/pois-bar-chart.png)
+![](/posts/pois-bar-chart.png)
 
 As this graph shows, apparently Montreal is dominated by restaurants, followed (bizarrely?) by benches. I'm not surprised to see the high proportions of cafes, restaurants, and bars. Taking a look at this graph does give me some questions about POI tagging conventions in OSM. For instance, how is a bar differentiated from a pub (given that there are tags for both)? I am quite surprised to see the high number of "Camera Surveillance" POIs, and wonder how this would compare with other cities...
 
@@ -207,7 +209,7 @@ The maps below show the distribution, grouped by borough, of surveillance camera
 
 I am also a little scared at the idea of there being so many surveillance cameras in Montreal, and wanted to see where they were most common. The Plateau and Ville Marie boroughs appear to have many more cameras than anywhere else in the island, as perhaps could be predicted by the increased population density in these areas. 
 
-![Ideas](/posts/surveillance.png)
+![](/posts/surveillance.png)
 
 ---
 

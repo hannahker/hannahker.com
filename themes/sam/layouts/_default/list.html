@@ -1,19 +1,22 @@
 {{ define "section_content" }}
-<div class="section" id="content">
-    {{ .Content }}
-    <ul>
-        {{ range .Data.Pages }}
-        <li>
-            {{ if .Params.showDate }}
-
-            {{ .Date.Format (.Site.Params.dateForm | default "Mon Jan 02, 2006")}} --
-
+<div class="container">
+    <div class="section">
+        {{ .Content }}
+        <div>
+            {{ range .Pages }}
+            <div id='container' class='card-h'>
+                
+                <figure>
+                    {{ with .Params.images }}
+                    <img src="{{ index . 0 }}" alt="" class='image-h'>
+                    {{ end }}
+                </figure>
+                <div class=overlay-h>
+                <a href="{{ .Permalink }}" class='text-h'>{{ .Title }}</a>
+                </div>
+            </div>
             {{ end }}
-            <a href="{{.Permalink}}">
-                {{.Title}}
-            </a>
-        </li>
-        {{ end }}
-    </ul>
+        </div>
+    </div>
 </div>
 {{ end }}

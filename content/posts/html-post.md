@@ -3,12 +3,14 @@ title: "Interactive map of murals in Montreal"
 date: 2019-10-01T12:41:46-05:00
 showDate: false
 images:
+    - /posts/mural-map-small.png
     - /posts/mural-map.png
+    
 ---
 
 [See the full map here!](https://hannahker.github.io/casa-gis/leaflet-maps/mtl-murals.html) 
 
-![Ideas](/posts/mural-map.png)
+![](/posts/mural-map.png)
 
 ---
 

@@ -29,8 +29,8 @@ pygmentsCodefences       = true
     text = "cartography"
 
 [[params.mainMenu]]
-    link = "/projects"
+    link = "/research"
     text = "research"
 
 [imaging]
-    quality = 100
+    quality = 60

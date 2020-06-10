@@ -3,7 +3,9 @@ title: "Kevin Lynch and my image of London"
 date: 2019-09-26T12:41:46-05:00
 showDate: false
 images:
+    - /posts/mind-map-small.png
     - /posts/mind-map.png
+    
 ---
 
 ![Ideas](/posts/mind-map.png)
