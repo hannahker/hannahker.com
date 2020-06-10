@@ -22,7 +22,7 @@ In this project, I analyzed communication patterns between OpenStreetMap (OSM) c
 
 Given the importance placed on building community within the OSM project, it is relevant to research existing modes of engagement between contributors. Survey research has found that, particularly among more experienced OSM mappers, community engagement is a key motivator for sustained contribution to the project.[^2] 
 
-The results of this analysis may also have implications for ongoing efforts to promote inclusion in OSM (as evidenced by the recent appointment of a [“Diversity and Inclusion Special Committee”](https://wiki.osmfoundation.org/wiki/Diversity_and_Inclusion_Special_Committee)). Research has found that the vast majority of OSM contributors are male.[^3] Research relating to Wikipedia, a similar online crowdsourcing project, has found that many women have stopped contributing due to experiences of conflict with other contributors during online discussions (Collier and Bear, 2012).
+The results of this analysis may also have implications for ongoing efforts to promote inclusion in OSM (as evidenced by the recent appointment of a [“Diversity and Inclusion Special Committee”](https://wiki.osmfoundation.org/wiki/Diversity_and_Inclusion_Special_Committee)). Research has found that the vast majority of OSM contributors are male.[^3] Research relating to Wikipedia, a similar online crowdsourcing project, has found that many women have stopped contributing due to experiences of conflict with other contributors during online discussions.[^4]
 
 ### Methods 
 
@@ -59,3 +59,4 @@ A detailed description of the full analysis and results can be viewed in [this J
 [^1]: Neis, P., 2017a. Review requests of OpenStreetMap contributors. URL https://neis-one.org/2017/09/review-requests-osm/ (accessed 4.28.20).
 [^2]: Budhathoki, N.R., Haythornthwaite, C., 2013. Motivation for Open Collaboration: Crowd and Community Models and the Case of OpenStreetMap. Am. Behav. Sci. 57, 548–575. https://doi.org/10.1177/0002764212469364
 [^3]: Gardner, Z., Mooney, P., De Sabbata, S., Dowthwaite, L., 2019. Quantifying gendered participation in OpenStreetMap: responding to theories of female (under) representation in crowdsourced mapping. GeoJournal. https://doi.org/10.1007/s10708-019-10035-z
+[^4]: Collier, B., Bear, J., 2012. Conflict, criticism, or confidence: an empirical examination of the gender gap in wikipedia contributions, in: Proceedings of the ACM 2012 Conference on Computer Supported Cooperative Work, CSCW ’12. Association for Computing Machinery, Seattle, Washington, USA, pp. 383–392. https://doi.org/10.1145/2145204.2145265
