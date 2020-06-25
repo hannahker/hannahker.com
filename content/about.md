@@ -10,11 +10,13 @@ images:
 
 ---  
 
+I am interested in exploring the ways that (geospatial) data can contribute to making cities, towns, and communities more equitable and sustainable. I am particularly fascinated by the applications of non-traditional data sources, such as those from crowdsourcing projects or social media platforms. 
+
+I believe in [urban transportation that works for everyone](https://hannahker.com/Transport_Policy.pdf), [data literacy education](https://www.opennorth.ca/2019/06/07/reflections-on-the-open-government-partnership-summit-let-s-talk-about-literacy), and [feminist data visualization](https://hannahker.com/research/emotion/). 
+
 ### Currently
 
 I am pursuing my MSc in Spatial Data Science and Visualization at UCL's [Centre for Advanced Spatial Analysis](https://www.ucl.ac.uk/bartlett/casa/). Through my dissertation, I am exploring [OpenStreetMap](https://www.openstreetmap.org/) data quality, focusing specifically on issues of data maintenance following humanitarian mapping activities. This work is conducted in collaboration with [Médecins Sans Frontières UK](https://www.msf.org.uk/about-manson-unit) to support the [Missing Maps](https://www.missingmaps.org/) project. 
-
-Broadly, I am interested in exploring the ways that different forms of (geospatial) data can contribute to making cities, towns, and communities more equitable and sustainable. I am particularly fascinated by the applications of non-traditional data sources, such as those from crowdsourcing projects or social media sites. 
 
 Through this master's program, I am expanding my skills in statistical analysis and machine learning, data visualization, and technical communication and collaboration. 
 
