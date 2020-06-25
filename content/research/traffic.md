@@ -15,6 +15,7 @@ images:
 ---
 
 ![](/research/predict.png)
+<div  style="text-align: center;" markdown="1"><i>Actual travel times compared against predicted travel times for selected link</i></div>
 
 ### Overview 
 
@@ -26,7 +27,7 @@ This data was collected as part of the [London Congestion Analysis Project](http
 
 ![](/research/selected_links_v2.png)
 
-<div  style="text-align: center;" markdown="1">Map of London with selected road links highlighted in red</div>
+<div  style="text-align: center;" markdown="1"><i>Map of London with selected road links highlighted in red</i></div>
 
 ### Modelling data with spatial and temporal dependencies 
 
@@ -49,6 +50,7 @@ I then split the data into training and testing sets, encompassing 16 days of ob
 The figure at the top of this post gives an example of the actual travel times in the dataset, compared with the travel times predicted by my model. When looking at this model's error (as measured by MAPE), according to the figure below, we can see that this SVR traffic prediction model performs competitively against other state-of-the-art approaches, such as STARIMA (a spatio-temporal extension of the traditional ARIMA time series model), and long short-term memory (a deep learning approach). These other models were created by other students in my course, with the same data.
 
 ![](/research/mape_results.png)
+<div  style="text-align: center;" markdown="1"><i>Accuracy of SVR model compared against other predictive models</i></div>
 
 Admittedly, this model may be of limited utility, as travel time predictions are only made 5 minutes in the future. Nonetheless, it is an interesting exercise in exploring different approaches for building predictive models that are somewhat robust to underlying spatial and temporal dependencies in the data.
 
