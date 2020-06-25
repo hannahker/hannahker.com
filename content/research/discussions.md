@@ -1,5 +1,5 @@
 ---
-title: "Analyzing OpenStreetMap changeset discussions"
+title: "Using NLP to analyze OpenStreetMap changeset discussions"
 date: 2019-01-19T12:41:46-05:00
 showDate: false
 tags: ["blog","story"]

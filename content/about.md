@@ -12,11 +12,13 @@ images:
 
 ### Currently
 
-I am pursuing my MSc in Spatial Data Science and Visualization at UCL's [Centre for Advanced Spatial Analysis](https://www.ucl.ac.uk/bartlett/casa/). I look forward to expanding my skills in GIS, data visualization, and quantitative methods, which I hope to apply to make cities more resilient and equitable. 
+I am pursuing my MSc in Spatial Data Science and Visualization at UCL's [Centre for Advanced Spatial Analysis](https://www.ucl.ac.uk/bartlett/casa/). Through my dissertation, I am exploring [OpenStreetMap](https://www.openstreetmap.org/) data quality, focusing specifically on issues of data maintenance following humanitarian mapping activities. This work is conducted in collaboration with [Médecins Sans Frontières UK](https://www.msf.org.uk/about-manson-unit) to support the [Missing Maps](https://www.missingmaps.org/) project. 
+
+Broadly, I am interested in exploring the ways that different forms of (geospatial) data can contribute to making cities, towns, and communities more equitable and sustainable. I am particularly fascinated by the applications of non-traditional data sources, such as those from crowdsourcing projects or social media sites. 
+
+Through this master's program, I am expanding my skills in statistical analysis and machine learning, data visualization, and technical communication and collaboration. 
 
 While living in London, I am a resident of [Goodenough College](https://www.goodenough.ac.uk/), thanks in part to generous funding from the [London Goodenough Association of Canada](http://lgac.ca/). 
-
-My ongoing areas of research interest include: feminist data science, privacy and digital rights, and cartography. 
 
 ### Previously 
 
