@@ -94,6 +94,6 @@ These maps show the area around some of my favourite places in London. I won't p
 
 ---
 
-*Check out the full code for this exercise [here]()*
+*Check out the full code for this exercise [here](https://github.com/hannahker/research-projects/blob/master/osmnx-graphs/OSMnx.ipynb)*
 
 

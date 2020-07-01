@@ -12,7 +12,7 @@ images:
 
 I am interested in exploring the ways that (geospatial) data can contribute to making cities, towns, and communities more equitable and sustainable. I am particularly fascinated by the applications of non-traditional data sources, such as those from crowdsourcing projects or social media platforms. 
 
-I believe in [urban transportation that works for everyone](https://hannahker.com/Transport_Policy.pdf), [data literacy education](https://www.opennorth.ca/2019/06/07/reflections-on-the-open-government-partnership-summit-let-s-talk-about-literacy), and [feminist data visualization](https://hannahker.com/research/emotion/). 
+I believe in [urban transportation that works for everyone](https://hannahker.com/Transport_Policy.pdf), [data literacy education](https://www.opennorth.ca/2019/06/07/reflections-on-the-open-government-partnership-summit-let-s-talk-about-literacy), and [the power of data visualization](https://hannahker.com/research/emotion/). 
 
 ### Currently
 
