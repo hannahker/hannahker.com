@@ -6,7 +6,7 @@ draft: false
 images:
     - /posts/fisher-small.PNG
     - /posts/eagles.PNG
-    - /posts/fisher.gif
+    - /posts/fisher.PNG
     
 ---
 
@@ -69,9 +69,9 @@ Ultimately, however, this use of interpolation meant that a significant portion 
 
 To communicate this uncertainty, I first made sure to make a visual distinction between control points from the original dataset, where we are ***certain*** that the animal was, and interpolated points, where we have varying degrees of ***uncertainty*** about where the animal was. I accentuated these 'true' points with bold colour and symbology. The colour of each point corresponds to the length of time elapsed since the previous point, which gives the viewer an indication how much they should trust the interpolated path of movement that connected these points. I also made the lines that represent the entire movement trajectory relatively thick and transparent, conveying a sense of 'fuzziness' to the viewer. 
 
-The resulting animation of movement, implemented using Mapboc GL JS, is shown in the example below. Take a look at the code [here](https://github.com/hannahker/living-city-visualization/tree/master/site-build/hannah_map). The animation can lag a bit sometimes, given the large amount of data processing done in the browser. Hopefully this is something that I can improve upon with future efforts! 
+A screenshot of the resulting animated movement, implemented using Mapboc GL JS, is shown in the example below. Take a look at the code [here](https://github.com/hannahker/living-city-visualization/tree/master/site-build/hannah_map). The animation can lag a bit sometimes, given the large amount of data processing done in the browser. Hopefully this is something that I can improve upon with future efforts! 
 
-![](/posts/fisher.gif)
+![](/posts/fisher.PNG)
 
 This piece of work is part of a larger group project that includes various other visualizations of animal life in or near urban spaces. Take a look at the page for the project: [Wildlife in the City](https://hannahker.github.io/living-city-visualization/site-build/index.html). 
 
