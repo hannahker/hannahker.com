@@ -2,11 +2,11 @@
 title: "hi, i'm hannah"
 date: 2018-02-13T13:42:49-05:00
 images:
-    - /me.png
+    - /me.jpg
 ---
 ---
 
-![Ideas](/me.png)
+![Ideas](/me.jpg)
 
 ---  
 
