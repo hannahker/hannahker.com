@@ -1,127 +1,86 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://hannahker.com/posts/eagles/</loc>
+    <lastmod>2020-09-10T12:41:46-05:00</lastmod>
+  </url><url>
     <loc>https://hannahker.com/</loc>
-    <lastmod>2020-04-01T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2020-09-10T12:41:46-05:00</lastmod>
+  </url><url>
     <loc>https://hannahker.com/posts/blender/</loc>
     <lastmod>2020-04-01T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/posts/trees-map/</loc>
     <lastmod>2020-01-14T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/posts/osmnx/</loc>
     <lastmod>2019-10-29T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/posts/html-post/</loc>
     <lastmod>2019-10-01T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/posts/image-post/</loc>
     <lastmod>2019-09-26T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/tags/blog/</loc>
-    <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-03-19T12:41:46-05:00</lastmod>
+  </url><url>
+    <loc>https://hannahker.com/tags/story/</loc>
+    <lastmod>2019-03-19T12:41:46-05:00</lastmod>
+  </url><url>
+    <loc>https://hannahker.com/tags/</loc>
+    <lastmod>2019-03-19T12:41:46-05:00</lastmod>
+  </url><url>
+    <loc>https://hannahker.com/research/traffic/</loc>
+    <lastmod>2019-03-19T12:41:46-05:00</lastmod>
+  </url><url>
+    <loc>https://hannahker.com/research/discussions/</loc>
+    <lastmod>2019-01-19T12:41:46-05:00</lastmod>
+  </url><url>
     <loc>https://hannahker.com/projects/orange-julep/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/projects/emotional-map/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/research/emotion/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/projects/spatio-temporal-tweets/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/research/spatio-temporal/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/projects/legibility/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/research/legibility/</loc>
     <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hannahker.com/tags/story/</loc>
-    <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hannahker.com/tags/</loc>
-    <lastmod>2018-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/about/</loc>
     <lastmod>2018-02-13T13:42:49-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/posts/</loc>
     <lastmod>2018-02-13T12:21:57-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/gallery/</loc>
     <lastmod>2018-02-13T12:21:57-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/projects/</loc>
     <lastmod>2018-02-13T12:21:57-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/research/</loc>
     <lastmod>2018-02-13T12:21:57-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/research/oj/</loc>
     <lastmod>2017-02-19T12:41:46-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/gallery/tokyo/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://hannahker.com/gallery/other/</loc>
   </url>
-  
 </urlset>

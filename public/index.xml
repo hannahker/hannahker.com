@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hannah Ker</title>
@@ -6,10 +6,15 @@
     <description>Recent content on Hannah Ker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2020 12:41:46 -0500</lastBuildDate>
-    
-	<atom:link href="https://hannahker.com/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 10 Sep 2020 12:41:46 -0500</lastBuildDate><atom:link href="https://hannahker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring approaches for visualizing animal movement on the web</title>
+      <link>https://hannahker.com/posts/eagles/</link>
+      <pubDate>Thu, 10 Sep 2020 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/posts/eagles/</guid>
+      <description>Movebank is an incredible repository of animal GPS tracks from all over the world, containing data from over 7,000 different studies. A dataset of GPS tracks will include a set of timestamped coordinates that are associated with a given animal. The theory here is that we can connect temporally adjacent coordinates from an animal to create an estimate of its trajectory of movement over time. After discovering this data, I worked on a couple of projects where I explored web-based options for interactive, cartographic visualization.</description>
+    </item>
     
     <item>
       <title>Shaded relief in Blender and R</title>
@@ -62,13 +67,33 @@ Unsurprisingly, my residence at Goodenough College features most prominently in 
     </item>
     
     <item>
+      <title>Using SVR to predict travel times in London</title>
+      <link>https://hannahker.com/research/traffic/</link>
+      <pubDate>Tue, 19 Mar 2019 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/research/traffic/</guid>
+      <description>Overview&amp;nbsp;¶ Using data collected from London&amp;rsquo;s ANPR camera system, I built and trained a machine learning model to predict travel times across 22 road links in central London.
+The data&amp;nbsp;¶ This data was collected as part of the London Congestion Analysis Project and provides travel times (in sec/meter), aggregated at 5 min intervals for road links throughout London. This data was collected between January 1st, 2011 and January 30th, 2011 and includes observations between 6am-9pm for each day.</description>
+    </item>
+    
+    <item>
+      <title>Using NLP to analyze OpenStreetMap changeset discussions</title>
+      <link>https://hannahker.com/research/discussions/</link>
+      <pubDate>Sat, 19 Jan 2019 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/research/discussions/</guid>
+      <description>Overview&amp;nbsp;¶ I used topic modelling and sentiment analysis to computationally investigate OpenStreetMap (OSM) changeset discussions. Specifically, I explored the following research question: What is the subject and tone of OSM changeset discussions between contributors in the United States over the past 90 days?
+Rationale&amp;nbsp;¶ In this project, I analyzed communication patterns between OpenStreetMap (OSM) contributors relating to their mapping activities. Since 2014, contributors have had the ability to engage in public discussions directly related to a given OSM changeset.</description>
+    </item>
+    
+    <item>
       <title>Emotional Cartography: Mapping Feelings of Anxiety in London</title>
       <link>https://hannahker.com/research/emotion/</link>
       <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
       
       <guid>https://hannahker.com/research/emotion/</guid>
       <description>Only when emotions, feelings, values, and ethics as well as a commitment to social justice become integral elements of our geospatial practices will moral geospatial practices become possible. Only then can GT help create a less violent and more just world. 1
-Overview Our experience of inhabiting space in cities is unique and subjective. The meaning, memories, and emotions that we attach to our surroundings impact the ways that we engage and interact with them.</description>
+Overview&amp;nbsp;¶ Our experience of inhabiting space in cities is unique and subjective. The meaning, memories, and emotions that we attach to our surroundings impact the ways that we engage and interact with them.</description>
     </item>
     
     <item>
@@ -77,7 +102,7 @@ Overview Our experience of inhabiting space in cities is unique and subjective. 
       <pubDate>Mon, 19 Feb 2018 12:41:46 -0500</pubDate>
       
       <guid>https://hannahker.com/research/spatio-temporal/</guid>
-      <description>Overview In this project, I was interested in exploring the spatial and temporal characteristics of tweets in London over a week-long time period. I analyzed the clustering patterns of approximately 40,000 tweets in both space and time. I found many clusters that could be linked to specific events taking place in the city. For example, I was able to detect events such as a West Ham vs Watford football game and an Adam Lambert concert.</description>
+      <description>Overview&amp;nbsp;¶ In this project, I was interested in exploring the spatial and temporal characteristics of tweets in London over a week-long time period. I analyzed the clustering patterns of approximately 40,000 tweets in both space and time. I found many clusters that could be linked to specific events taking place in the city. For example, I was able to detect events such as a West Ham vs Watford football game and an Adam Lambert concert.</description>
     </item>
     
     <item>
@@ -87,7 +112,7 @@ Overview Our experience of inhabiting space in cities is unique and subjective. 
       
       <guid>https://hannahker.com/research/legibility/</guid>
       <description>This project was an investigation into the ways that we perceive and understand the urban landscapes around us.
-Overview In his seminal book, The Image of the City, Kevin Lynch identified legibility as an important characteristic of pleasurable and engaging cities1. Legibility is the perceptual quality of urban landscapes that makes them remarkable and distinctive. A city made up of highly legible environments will be clearly imagined in the minds of those that live within it.</description>
+Overview&amp;nbsp;¶ In his seminal book, The Image of the City, Kevin Lynch identified legibility as an important characteristic of pleasurable and engaging cities1. Legibility is the perceptual quality of urban landscapes that makes them remarkable and distinctive. A city made up of highly legible environments will be clearly imagined in the minds of those that live within it.</description>
     </item>
     
     <item>
@@ -96,8 +121,8 @@ Overview In his seminal book, The Image of the City, Kevin Lynch identified legi
       <pubDate>Tue, 13 Feb 2018 13:42:49 -0500</pubDate>
       
       <guid>https://hannahker.com/about/</guid>
-      <description>Currently I am pursuing my MSc in Spatial Data Science and Visualization at UCL&amp;rsquo;s Centre for Advanced Spatial Analysis. I look forward to expanding my skills in GIS, data visualization, and quantitative methods, which I hope to apply to make cities more resilient and equitable.
-While living in London, I am a resident of Goodenough College, thanks in part to generous funding from the London Goodenough Association of Canada.</description>
+      <description>I am interested in exploring the ways that (geospatial) data can contribute to making cities, towns, and communities more equitable and sustainable. I am particularly fascinated by the applications of non-traditional data sources, such as those from crowdsourcing projects or social media platforms.
+Currently&amp;nbsp;¶ I am working as a Humanitarian Data Scientist at MapAction. In this role, I am contributing to efforts to improve information management during humanitarian crises. Within the Predictive Analytics Team at the UN OCHA&amp;rsquo;s Centre for Humanitarian Data, I am also working to create and validate predictive models that can enable early response to crises.</description>
     </item>
     
     <item>

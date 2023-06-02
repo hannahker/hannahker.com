@@ -1,22 +1,19 @@
 {{ define "section_content" }}
-<div class="container">
-    <div class="section">
-        {{ .Content }}
-        <div>
-            {{ range .Pages }}
-            <div id='container' class='card-h'>
-                
-                <figure>
-                    {{ with .Params.images }}
-                    <img src="{{ index . 0 }}" class='image-h'>
-                    {{ end }}
-                </figure>
-                <div class=overlay-h>
-                <a href="{{ .Permalink }}" class='text-h'>{{ .Title }}</a>
-                </div>
-            </div>
+<article class="flex-container">
+    {{ .Content }}
+</article>
+<nav role="navigation">
+    <ul>
+        {{ range .Data.Pages }}
+        <li>
+            {{ if .Params.showDate }}
+            {{ .Date.Format (.Site.Params.dateForm | default "Mon Jan 02, 2006")}} --
             {{ end }}
-        </div>
-    </div>
-</div>
+            <a href="{{.RelPermalink}}">
+                {{.Title | markdownify}}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</nav>
 {{ end }}

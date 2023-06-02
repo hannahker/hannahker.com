@@ -9,12 +9,11 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
+
 <meta name="description" content="A new Hugo site.">
 <title>
-A minimal map of Vancouver&#39;s street trees - Hannah Ker
+    A minimal map of Vancouver&rsquo;s street trees - Hannah Ker
 </title>
-
-
 
 
 <link rel="shortcut icon" href="/%20">
@@ -26,11 +25,17 @@ A minimal map of Vancouver&#39;s street trees - Hannah Ker
 
 
 
-<link rel="stylesheet" href="/css/main.min.800295cd7499aa8a9577fa052e0f9055c7c2dcfee91406d194d968d69bca045f.css" integrity="sha256-gAKVzXSZqoqVd/oFLg&#43;QVcfC3P7pFAbRlNlo1pvKBF8=" crossorigin="anonymous" media="screen">
+<link rel="stylesheet" href="/css/main.min.c5514d3530979d291f3497facc20da1cec870028dbc2a3630b64bab8721bbe49.css" integrity="sha256-xVFNNTCXnSkfNJf6zCDaHOyHACjbwqNjC2S6uHIbvkk=" crossorigin="anonymous" media="screen">
 
 
 
- 
+
+  
+
+
+
+
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
 
@@ -43,13 +48,10 @@ A minimal map of Vancouver&#39;s street trees - Hannah Ker
 <meta property="og:title" content="A minimal map of Vancouver&#39;s street trees" />
 <meta property="og:description" content="I have been a long-time admirer of the &lsquo;Minimal Maps&rsquo; series from Michael Pecirno, and wanted to try to recreate something similar. I really liked his focus on the natural environment and spent a while exploring potential datasets, at a variety of scales. I eventually settled on this dataset of street trees in Vancouver. This dataset has one point for every public tree on Vancouver&rsquo;s boulevards (there are over 140,000!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hannahker.com/posts/trees-map/" />
-
-<meta property="og:image" content="https://hannahker.com/posts/trees-small.png" />
-
-<meta property="og:image" content="https://hannahker.com/posts/trees.png" />
+<meta property="og:url" content="https://hannahker.com/posts/trees-map/" /><meta property="og:image" content="https://hannahker.com/posts/trees-small.png" /><meta property="og:image" content="https://hannahker.com/posts/trees.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-01-14T12:41:46-05:00" />
 <meta property="article:modified_time" content="2020-01-14T12:41:46-05:00" /><meta property="og:site_name" content="Hannah Ker" />
+
 
 
     
@@ -59,108 +61,113 @@ A minimal map of Vancouver&#39;s street trees - Hannah Ker
     
     <title>
         
-        A minimal map of Vancouver&#39;s street trees
+        A minimal map of Vancouver&rsquo;s street trees
         
     </title>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="section" id="title">A minimal map of Vancouver&#39;s street trees</div>
-
+    
+    
+    <header class="wrap flex-container">
+        <h1>A minimal map of Vancouver&rsquo;s street trees</h1>
+    </header>
+    
+    <main class="wrap">
         
-<div class="section" id="content">
-    Tue Jan 14, 2020 &#183; 429 words
-    
-    <hr/>
-    
-
-<p><img src="/posts/trees.png" alt="Ideas" /></p>
-
-<hr />
-
+<div class="flex-container">
+    <aside role="complementary">
+        Tue Jan 14, 2020 &#183; 429 words
+        <div class="tag-container">
+            
+        </div>
+    </aside>
+    <hr />
+    <article role="article">
+        <p><p style="text-align:center;">
+    <img src="/posts/trees.png" alt="Ideas"  />
+</p>
+</p>
+<hr>
 <p>I have been a long-time admirer of the <a href="https://design-milk.com/minimal-maps-michael-pecirno/">&lsquo;Minimal Maps&rsquo; series</a> from Michael Pecirno, and wanted to try to recreate something similar. I really liked his focus on the natural environment and spent a while exploring potential datasets, at a variety of scales. I eventually settled on <a href="https://opendata.vancouver.ca/explore/dataset/street-trees/export/?disjunctive.species_name&amp;disjunctive.common_name&amp;disjunctive.height_range_id">this dataset</a> of street trees in Vancouver. This dataset has one point for every public tree on Vancouver&rsquo;s boulevards (there are over 140,000!).</p>
 
-<h3 id="data-cleaning">Data Cleaning</h3>
-
+<h3 id="data-cleaning" class="anchor-link"><a href="#data-cleaning">Data Cleaning<span class="pilcrow">&nbsp;¶</span></a></h3>
 <p>I downloaded this dataset as a CSV (it was taking too long to open in R as a GeoJSON) and read it into R.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># loading in necessary libraries </span>
-<span style="color:#f92672">library</span>(ggplot2)
-<span style="color:#f92672">library</span>(rlist)
-<span style="color:#f92672">library</span>(sf)
-
-<span style="color:#75715e"># open the dataset </span>
-trees <span style="color:#f92672">&lt;-</span> read.csv(<span style="color:#e6db74">&#39;street-trees.csv&#39;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;;&#39;</span>)</code></pre></div>
-<p>Because I am still finding R&rsquo;s factor data type challenging to work with, I converted everything into integers or strings. I also removed the entries without any coordinates.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># convert factors to strings </span>
-i <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">sapply</span>(trees, <span style="color:#66d9ef">is.factor</span>) <span style="color:#75715e"># find columns that are factors </span>
-trees[i] <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">lapply</span>(trees[i], <span style="color:#66d9ef">as.character</span>) <span style="color:#75715e"># convert column to character</span>
-
-<span style="color:#75715e"># remove rows without coordinates </span>
-new <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">subset</span>(trees, <span style="color:#66d9ef">nchar</span>(Geom) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)</code></pre></div>
-<p>The most challenging part of this process was getting the coordinate data into a workable format. Initially, this data for each tree was stored in a cell in a format like this:</p>
-
-<p>{\&ldquo;type\&rdquo;: \&ldquo;Point\&ldquo;, \&ldquo;coordinates\&rdquo;: [-123.135032, 49.230858]}</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># loading in necessary libraries </span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(rlist)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(sf)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># open the dataset </span>
+</span></span><span style="display:flex;"><span>trees <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#39;street-trees.csv&#39;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;;&#39;</span>)
+</span></span></code></pre></div><p>Because I am still finding R&rsquo;s factor data type challenging to work with, I converted everything into integers or strings. I also removed the entries without any coordinates.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># convert factors to strings </span>
+</span></span><span style="display:flex;"><span>i <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(trees, is.factor) <span style="color:#75715e"># find columns that are factors </span>
+</span></span><span style="display:flex;"><span>trees[i] <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lapply</span>(trees[i], as.character) <span style="color:#75715e"># convert column to character</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove rows without coordinates </span>
+</span></span><span style="display:flex;"><span>new <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">subset</span>(trees, <span style="color:#a6e22e">nchar</span>(Geom) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>The most challenging part of this process was getting the coordinate data into a workable format. Initially, this data for each tree was stored in a cell in a format like this:</p>
+<p>{&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-123.135032, 49.230858]}</p>
 <p>I wrote a function to parse these strings, one at a time, and return a list that contained just the coordinates.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># function to parse strings to get coordinates</span>
-getcoords <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">function</span>(string){
-  
-  split <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">strsplit</span>(string,<span style="color:#e6db74">&#39;]&#39;</span>)[[<span style="color:#ae81ff">1</span>]]
-  a <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">split</span>[[<span style="color:#ae81ff">1</span>]]
-  b <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">strsplit</span>(a, <span style="color:#e6db74">&#39;-&#39;</span>)[[<span style="color:#ae81ff">1</span>]][[<span style="color:#ae81ff">2</span>]]
-  <span style="color:#66d9ef">c</span> <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">strsplit</span>(b, <span style="color:#e6db74">&#39;,&#39;</span>)
-  d <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">c</span>[[<span style="color:#ae81ff">1</span>]]
-  
-  x <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">paste0</span>(<span style="color:#e6db74">&#39;-&#39;</span>, d[[<span style="color:#ae81ff">1</span>]])
-  y <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">strsplit</span>(d[[<span style="color:#ae81ff">2</span>]], <span style="color:#e6db74">&#39; &#39;</span>)[[<span style="color:#ae81ff">1</span>]][[<span style="color:#ae81ff">2</span>]]
-  
-  coords <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">list</span>(x,y)
-  <span style="color:#66d9ef">return</span>(coords)
-  
-}</code></pre></div>
-<p>I applied this function to each point in the dataset and created new columns for each coordinate.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># apply the function for each row </span>
-<span style="color:#66d9ef">for</span> (i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#66d9ef">length</span>(new<span style="color:#f92672">$</span>Geom)){
-  
-  <span style="color:#75715e"># parse to get the coordinates </span>
-  z <span style="color:#f92672">&lt;-</span> getcoords(new<span style="color:#f92672">$</span>Geom[[i]])
-  x <span style="color:#f92672">&lt;-</span> z[[<span style="color:#ae81ff">1</span>]]
-  y <span style="color:#f92672">&lt;-</span> z[[<span style="color:#ae81ff">2</span>]]
-  
-  <span style="color:#75715e"># add new columns to df </span>
-  new<span style="color:#f92672">$</span>lats[i] <span style="color:#f92672">&lt;-</span> x
-  new<span style="color:#f92672">$</span>longs[i] <span style="color:#f92672">&lt;-</span> y
-
-}
-
-<span style="color:#75715e"># convert the columns from characters to nums </span>
-new<span style="color:#f92672">$</span>lats <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">as.numeric</span>(new<span style="color:#f92672">$</span>lats)
-new<span style="color:#f92672">$</span>longs<span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">as.numeric</span>(new<span style="color:#f92672">$</span>longs)</code></pre></div>
-<h3 id="visualizing-the-data">Visualizing the data</h3>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># function to parse strings to get coordinates</span>
+</span></span><span style="display:flex;"><span>getcoords <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(string){
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  split <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">strsplit</span>(string,<span style="color:#e6db74">&#39;]&#39;</span>)[[1]]
+</span></span><span style="display:flex;"><span>  a <span style="color:#f92672">&lt;-</span> split[[1]]
+</span></span><span style="display:flex;"><span>  b <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">strsplit</span>(a, <span style="color:#e6db74">&#39;-&#39;</span>)[[1]][[2]]
+</span></span><span style="display:flex;"><span>  c <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">strsplit</span>(b, <span style="color:#e6db74">&#39;,&#39;</span>)
+</span></span><span style="display:flex;"><span>  d <span style="color:#f92672">&lt;-</span> c[[1]]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  x <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#39;-&#39;</span>, d[[1]])
+</span></span><span style="display:flex;"><span>  y <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">strsplit</span>(d[[2]], <span style="color:#e6db74">&#39; &#39;</span>)[[1]][[2]]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  coords <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>(x,y)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">return</span>(coords)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I applied this function to each point in the dataset and created new columns for each coordinate.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># apply the function for each row </span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">for </span>(i in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">length</span>(new<span style="color:#f92672">$</span>Geom)){
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># parse to get the coordinates </span>
+</span></span><span style="display:flex;"><span>  z <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getcoords</span>(new<span style="color:#f92672">$</span>Geom[[i]])
+</span></span><span style="display:flex;"><span>  x <span style="color:#f92672">&lt;-</span> z[[1]]
+</span></span><span style="display:flex;"><span>  y <span style="color:#f92672">&lt;-</span> z[[2]]
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># add new columns to df </span>
+</span></span><span style="display:flex;"><span>  new<span style="color:#f92672">$</span>lats[i] <span style="color:#f92672">&lt;-</span> x
+</span></span><span style="display:flex;"><span>  new<span style="color:#f92672">$</span>longs[i] <span style="color:#f92672">&lt;-</span> y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># convert the columns from characters to nums </span>
+</span></span><span style="display:flex;"><span>new<span style="color:#f92672">$</span>lats <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.numeric</span>(new<span style="color:#f92672">$</span>lats)
+</span></span><span style="display:flex;"><span>new<span style="color:#f92672">$</span>longs<span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.numeric</span>(new<span style="color:#f92672">$</span>longs)
+</span></span></code></pre></div>
+<h3 id="visualizing-the-data" class="anchor-link"><a href="#visualizing-the-data">Visualizing the data<span class="pilcrow">&nbsp;¶</span></a></h3>
 <p>Once all the data was cleaned, it was a very simple matter to visualize using ggplot2. Given that the dataset was decently large, I took a smaller subset of all points for faster visualization while I tested different visualization parameters.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># get smaller version for faster testing </span>
-small <span style="color:#f92672">&lt;-</span> new[<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2500</span>,]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># get smaller version for faster testing </span>
+</span></span><span style="display:flex;"><span>small <span style="color:#f92672">&lt;-</span> new[1<span style="color:#f92672">:</span><span style="color:#ae81ff">2500</span>,]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># make the map </span>
+</span></span><span style="display:flex;"><span>map <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(data<span style="color:#f92672">=</span>small) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_point</span>(data<span style="color:#f92672">=</span>small, 
+</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>small<span style="color:#f92672">$</span>lats, 
+</span></span><span style="display:flex;"><span>                 y<span style="color:#f92672">=</span>small<span style="color:#f92672">$</span>longs), 
+</span></span><span style="display:flex;"><span>             size<span style="color:#f92672">=</span>small<span style="color:#f92672">$</span>DIAMETER<span style="color:#f92672">*</span><span style="color:#ae81ff">0.1</span>, 
+</span></span><span style="display:flex;"><span>             alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.005</span>, 
+</span></span><span style="display:flex;"><span>             color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#ffffff&#39;</span>)<span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">theme_map</span>()
+</span></span></code></pre></div><p>After outputting this map, I used inDesign to add some simple text for a title.</p>
+<hr>
 
-<span style="color:#75715e"># make the map </span>
-map <span style="color:#f92672">&lt;-</span> ggplot(data<span style="color:#f92672">=</span>small) <span style="color:#f92672">+</span>
-  geom_point(data<span style="color:#f92672">=</span>small, 
-             aes(x<span style="color:#f92672">=</span>small<span style="color:#f92672">$</span>lats, 
-                 y<span style="color:#f92672">=</span>small<span style="color:#f92672">$</span>longs), 
-             size<span style="color:#f92672">=</span>small<span style="color:#f92672">$</span>DIAMETER<span style="color:#f92672">*</span><span style="color:#ae81ff">0.1</span>, 
-             alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.005</span>, 
-             color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#ffffff&#39;</span>)<span style="color:#f92672">+</span> 
-  theme_map()</code></pre></div>
-<p>After outputting this map, I used inDesign to add some simple text for a title.</p>
-
-<hr />
-
+    </article>
 </div>
 
 
         
-<div class="section bottom-menu">
+<nav role="navigation" class="flex-container bottom-menu">
     
 <hr />
 <p>
@@ -175,35 +182,35 @@ map <span style="color:#f92672">&lt;-</span> ggplot(data<span style="color:#f926
 
     
         
-            <a href="/about">
-                hi, i&#39;m hannah
-            </a>
+            <a href="/about">hi, i&#39;m hannah</a>
         
     
     
         
             &#183; 
-            <a href="/posts">
-                cartography
-            </a>
+            <a href="/posts">cartography</a>
         
             &#183; 
-            <a href="/research">
-                research
-            </a>
+            <a href="/research">research</a>
         
     
-    &#183; 
-    <a href="https://hannahker.com/">
-        main
-    </a>
+    
+    
+        &#183; 
+        <a href="/">
+            main
+        </a>
+    
 
 </p>
-</div>
+</nav>
 
-
-        <div class="section footer">Hannah Ker</div>
-    </div>
+    </main>
+    
+    <footer class="flex-container footer">Hannah Ker
+</footer>
+    
+    
 </body>
 
 </html>

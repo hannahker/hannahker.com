@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cartography on Hannah Ker</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Cartography on Hannah Ker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Feb 2018 12:21:57 -0500</lastBuildDate>
-    
-	<atom:link href="https://hannahker.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 13 Feb 2018 12:21:57 -0500</lastBuildDate><atom:link href="https://hannahker.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring approaches for visualizing animal movement on the web</title>
+      <link>https://hannahker.com/posts/eagles/</link>
+      <pubDate>Thu, 10 Sep 2020 12:41:46 -0500</pubDate>
+      
+      <guid>https://hannahker.com/posts/eagles/</guid>
+      <description>Movebank is an incredible repository of animal GPS tracks from all over the world, containing data from over 7,000 different studies. A dataset of GPS tracks will include a set of timestamped coordinates that are associated with a given animal. The theory here is that we can connect temporally adjacent coordinates from an animal to create an estimate of its trajectory of movement over time. After discovering this data, I worked on a couple of projects where I explored web-based options for interactive, cartographic visualization.</description>
+    </item>
     
     <item>
       <title>Shaded relief in Blender and R</title>
