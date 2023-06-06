@@ -41,15 +41,15 @@ p {
   opacity: 1; }
 
 a {
-  color: #cccccc;
+  color: #39424E;
   text-decoration: none;
   border-bottom: 2px solid #f88379;
   transition: 0.5s ease; }
   a:hover {
-    color: #fff;
+    color: #f88379;
     font-style: none; }
   a:active {
-    color: #cccccc; }
+    color: #39424E; }
 
 button {
   padding: 20px;
@@ -175,7 +175,7 @@ article {
     font-family: 'Source Code Pro', monospace;
     padding: 0.1rem;
     border-radius: 3px;
-    border: 1px solid #cccccc; }
+    border: 1px solid #39424E; }
   article img {
     width: 100%;
     max-width: 100%;
@@ -183,7 +183,7 @@ article {
     margin: 2rem auto;
     opacity: 1; }
   article blockquote {
-    background-color: #cccccc;
+    background-color: #39424E;
     color: #39424E;
     padding: 2rem;
     margin: 2rem 1rem 2rem 1rem;
@@ -204,7 +204,7 @@ article {
     article table td, article table th {
       padding: 2px 5px;
       text-align: center;
-      border: 1px solid #cccccc; }
+      border: 1px solid #39424E; }
   article li {
     line-height: 2;
     padding-left: 0.4rem; }
