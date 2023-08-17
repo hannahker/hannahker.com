@@ -26,7 +26,7 @@ h1, h2, h3 {
   margin-bottom: 0.5em;
   text-align: center;
   font-family: 'Didact Gothic', sans-serif;
-  opacity: 0.6; }
+  opacity: 0.8; }
 
 li {
   opacity: 0.8; }
@@ -69,7 +69,7 @@ hr {
 
 .wrap {
   margin: 0 auto;
-  margin-top: 6rem;
+  margin-top: 3rem;
   width: 45%; }
   @media screen and (max-width: 736px) {
     .wrap {
@@ -119,14 +119,18 @@ hr {
     display: contents; }
 
 #splash {
-  min-height: calc(100vh - 6em); }
-
+  width: 45%;
+  overflow: hidden;
+  margin-top: 30vh; }
+  @media screen and (max-width: 736px) {
+    #splash {
+      width: 90%; } }
 .big-link {
   font-family: "Didact Gothic", "sans serif";
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 2rem;
-  line-height: 1.5em; }
+  line-height: 1.75em; }
 
 #title {
   margin-top: 3rem;
@@ -147,8 +151,7 @@ article {
     margin: 1em 0em;
     text-align: left; }
   article .anchor-link > a {
-    border-bottom: none;
-    color: #fff; }
+    border-bottom: none; }
     article .anchor-link > a:hover > .pilcrow {
       display: inline; }
   article span.pilcrow {

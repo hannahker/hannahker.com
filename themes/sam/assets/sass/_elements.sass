@@ -1,12 +1,16 @@
 #splash
-    min-height: calc(100vh - 6em)
+    width: 45%
+    overflow: hidden
+    margin-top: 30vh
+    @media screen and (max-width: 736px)
+        width: 90%
 
 .big-link
     font-family: $font
     font-size: 3rem
     font-weight: 300
     margin-bottom: 2rem
-    line-height: 1.5em
+    line-height: 1.75em
 
 #title
     margin-top: 3rem
@@ -26,9 +30,10 @@ article
     & h1,h2,h3
         margin: 1em 0em
         text-align: left
+
     & .anchor-link > a
         border-bottom: none
-        color: $body-text
+
         &:hover > .pilcrow
             display: inline
     & span.pilcrow
