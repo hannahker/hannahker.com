@@ -10,24 +10,24 @@ images:
 
 ---  
 
-I am interested in exploring the ways that (geospatial) data can contribute to making cities, towns, and communities more equitable and sustainable. I am particularly fascinated by the applications of non-traditional data sources, such as those from crowdsourcing projects or social media platforms. 
+I'm passionate about helping others make sense of data. 
+
+Day to day, you can find me building data cleaning pipelines, designing clear visualizations, holding workshops, or working to transform a client's business questions into an insightful application. With a strong background in geospatial technology, I'm happiest any time I get to look at data with lats and longs. 
 
 ### Currently
 
-I am working as a Humanitarian Data Scientist at [MapAction](https://mapaction.org/). In this role, I am contributing to efforts to improve information management during humanitarian crises. Within the Predictive Analytics Team at the UN OCHA's [Centre for Humanitarian Data](https://centre.humdata.org/), I am also working to create and validate predictive models that can enable early response to crises. 
+I'm working at [Plotly](https://plotly.com/) as a Technical Project Lead. In this role, I work with clients to leverage the [Dash framework](https://dash.plotly.com/) and Python ecosystem to build full-stack data applications. Project highlights include building an [image segmentation interface](https://github.com/mlexchange/mlex_highres_segmentation) to help [scientists](https://als.lbl.gov/) understand the molecular structure of matter, and developing new visualization capabilities in Plotly's [JavaScript graphing library](https://github.com/plotly/plotly.js) to [support the work of electric vehicle engineers](https://twitter.com/plotlygraphs/status/1692239116740534662/photo/1).
 
 ### Previously 
 
-I have recently completed my MSc in Spatial Data Science and Visualization at UCL's [Centre for Advanced Spatial Analysis](https://www.ucl.ac.uk/bartlett/casa/). Through my dissertation, I investigated data maintenance practices in [OpenStreetMap](https://www.openstreetmap.org/), following humanitarian mapping campaigns. This work was conducted with support from [Médecins Sans Frontières UK](https://www.msf.org.uk/about-manson-unit) to support the [Missing Maps](https://www.missingmaps.org/) project.
+My past work experience sits in the humanitarian and non-profit sectors, where I worked to improve how data could be used to anticipate humanitarian emergencies and improve government transparency. I was a Data Scientist at [MapAction](https://mapaction.org/) (and seconded to the UN's [Centre for Humanitarian Data](https://centre.humdata.org/)), and an Open Data Analyst at [OpenNorth](https://www.opennorth.ca/).
 
-I previously worked in the non-profit sector at [OpenNorth](https://www.opennorth.ca/) as an Open Data Analyst. In this role I worked on various projects to improve data literacy in government, both in Canada and abroad (in Ukraine). Specifically, I worked with stakeholders to improve data management during online and offline [public consultations](https://www.opennorth.ca/2019/06/03/what-we-re-up-to-data-literacy-and-public-consultations), and within [homelessness service providers](https://www.opennorth.ca/2018/12/24/workshop-on-data-management-for-a-homelessness-information-system).
-
-My undergraduate degree is in urban geography, which I studied at McGill University in Montreal. I completed an [Honours Thesis](https://www.mcgill.ca/geography/files/geography/ker_hannah_2018_honoursabstract.pdf) on local perceptions of Montreal's built environment under the supervision of Dr. Renee Sieber and Dr. Raja Sengupta. While at McGill, I was heavily involved with the competitive [sailing team](http://mcgillsailing.org/) and the [Open Mapping Group of McGill](https://www.facebook.com/omgMcGill/). 
+I have a MSc in Spatial Data Science and Visualization from UCL's [Centre for Advanced Spatial Analysis](https://www.ucl.ac.uk/bartlett/casa/) and a BA in Urban Geography from McGill University. 
 
 If it involves maps or boats, I'm there. 
 
 ---
 
 
-*You can find more details about me on [Linkedin](https://ca.linkedin.com/in/hannah-ker-991007115), [Twitter](https://twitter.com/hannahker11), and [Github](https://github.com/hannahker). Or take a look at [my CV](https://hannahker.com/cv.pdf)*
+*You can find more details about me on [Linkedin](https://ca.linkedin.com/in/hannah-ker-991007115), [Twitter](https://twitter.com/hannahker11), and [Github](https://github.com/hannahker).*
 
