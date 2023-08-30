@@ -174,11 +174,12 @@ article {
   article pre > code {
     border: none; }
   article code {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-family: 'Source Code Pro', monospace;
-    padding: 0.1rem;
+    padding: 0px;
     border-radius: 3px;
-    border: 1px solid #39424E; }
+    border: 1px solid #39424E;
+    line-height: 1.25em; }
   article img {
     width: 100%;
     max-width: 100%;

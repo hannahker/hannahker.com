@@ -28,6 +28,5 @@ If it involves maps or boats, I'm there.
 
 ---
 
-
-*You can find more details about me on [Linkedin](https://ca.linkedin.com/in/hannah-ker-991007115), [Twitter](https://twitter.com/hannahker11), and [Github](https://github.com/hannahker).*
+*Download [my CV](https://hannahker.com/Ker_CV_2023.pdf), or check out my [Linkedin](https://ca.linkedin.com/in/hannah-ker-991007115), [Twitter](https://twitter.com/hannahker11), or [Github](https://github.com/hannahker).*
 

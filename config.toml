@@ -25,8 +25,8 @@ pygmentsCodefences       = true
     text = "hi, i'm hannah"
 
 [[params.mainMenu]]
-    link = "/posts"
-    text = "cartography"
+    link = "/maps"
+    text = "maps"
 
 [[params.mainMenu]]
     link = "/research"
