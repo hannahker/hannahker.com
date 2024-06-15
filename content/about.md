@@ -10,15 +10,13 @@ images:
 
 ---  
 
-I'm passionate about helping others make sense of data. 
+I'm passionate about using data for good. 
 
-Day to day, you can find me building data cleaning pipelines, designing clear visualizations, holding workshops, or working to transform a client's business questions into an insightful application. With a strong background in geospatial technology, I'm happiest any time I get to look at data with lats and longs. 
+Day to day, you can find me building data pipelines, designing insightful visualizations, or holding workshops. With a strong background in geospatial technology, I'm happiest any time I get to look at data with lats and longs. 
 
 ### Currently
 
 I'm working at the OCHA [Centre for Humanitarian Data](https://centre.humdata.org/) as a Data Scientist. In this role, I'm helping the humanitarian system use data effectively and ethically to predict and respond to humanitarian crises. 
-
-[Plotly](https://plotly.com/) as a Technical Project Lead. In this role, I work with clients to 
 
 ### Previously 
 
