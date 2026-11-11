@@ -1,30 +1,31 @@
 [build]
-publish = "public"
-command = "hugo --gc --minify"
+publish = "www"
+command = ""
 
-[context.production.environment]
-HUGO_VERSION = "0.59.0"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
+[[redirects]]
+from = "/about/"
+to = "/#about"
 
-[context.split1]
-command = "hugo --gc --minify --enableGitInfo"
+[[redirects]]
+from = "/maps/image-post/"
+to = "/#works/image-of-london"
 
-[context.split1.environment]
-HUGO_VERSION = "0.59.0"
-HUGO_ENV = "production"
+[[redirects]]
+from = "/maps/blender/"
+to = "/#works/shaded-relief"
 
-[context.deploy-preview]
-command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+[[redirects]]
+from = "/research/emotion/"
+to = "/#works/emotional-cartography"
 
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.59.0"
+[[redirects]]
+from = "/research/oj/"
+to = "/#works/cultural-landscapes"
 
-[context.branch-deploy]
-command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+[[redirects]]
+from = "/cv.pdf"
+to = "/Ker_CV_2023.pdf"
 
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.59.0"
-
-[context.next.environment]
-HUGO_ENABLEGITINFO = "true"
+[[redirects]]
+from = "/*"
+to = "/"
