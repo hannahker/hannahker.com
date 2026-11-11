@@ -1,1 +1,5 @@
 node_modules/*
+# topo page source data and caches
+topo/data/
+__pycache__/
+.DS_Store
