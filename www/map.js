@@ -25,6 +25,7 @@ const FONTS = {
   nav: (size) => `300 ${size}px "Helvetica Neue", Helvetica, Arial, sans-serif`,
 };
 
+const MIN_TARGET_PX = 24;
 const isAction = (label) => Boolean(label.href || label.route);
 const currentSection = () => location.hash.slice(1).split("/")[0];
 
@@ -226,6 +227,10 @@ function drawLabels() {
     const highlighted = isAction(label) && (label === hovered || label === focused || (label.route && label.route === currentSection()));
     ctx.fillStyle = highlighted ? ACCENT : INK;
     eachGlyph(label, (g) => ctx.fillText(g.ch, 0, 0));
+    if (label === focused) {
+      const thickness = 1.5 / view.k;
+      eachGlyph(label, (g) => ctx.fillRect(-g.advance / 2 - 0.2, label.size * 0.62, g.advance + 0.4, thickness));
+    }
   }
 }
 
@@ -238,7 +243,8 @@ function linkAt(sx, sy) {
       const dy = p.y - g.y;
       const along = dx * Math.cos(g.angle) + dy * Math.sin(g.angle);
       const across = -dx * Math.sin(g.angle) + dy * Math.cos(g.angle);
-      if (Math.abs(along) <= g.advance / 2 + label.size * 0.15 && Math.abs(across) <= label.size * 0.6) return label;
+      const reach = Math.max(label.size * 0.6, MIN_TARGET_PX / 2 / view.k);
+      if (Math.abs(along) <= g.advance / 2 + label.size * 0.15 && Math.abs(across) <= reach) return label;
     }
   }
   return null;
@@ -250,7 +256,10 @@ function setView(v) {
   requestFrame();
 }
 
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
 function glideTo(v) {
+  if (reducedMotion.matches) return setView(v);
   target = constrain(v);
   velocity = null;
   requestFrame();
@@ -350,7 +359,7 @@ function release(e) {
   const last = trail[trail.length - 1];
   if (first && last && last.t - first.t > 10 && e.timeStamp - last.t < 60) {
     const elapsed = last.t - first.t;
-    velocity = { x: (last.x - first.x) / elapsed / view.k, y: (last.y - first.y) / elapsed / view.k };
+    if (!reducedMotion.matches) velocity = { x: (last.x - first.x) / elapsed / view.k, y: (last.y - first.y) / elapsed / view.k };
     requestFrame();
   }
 }
@@ -392,7 +401,18 @@ document.addEventListener("keydown", (e) => {
   dismissHint();
 });
 
-/* Hidden real links for keyboard and screen-reader users */
+/* Hidden real links for keyboard and screen-reader users; focusing one highlights its label on the map */
+function showFocus(label) {
+  focused = label;
+  if (label) glideTo(homeView());
+  requestFrame();
+}
+
+document.querySelectorAll(".masthead [data-route]").forEach((a) => {
+  a.addEventListener("focus", () => showFocus(labels.find((l) => l.route === a.dataset.route)));
+  a.addEventListener("blur", () => showFocus(null));
+});
+
 function buildLinkList() {
   const nav = document.getElementById("links");
   LABELS.forEach((label, i) => {
