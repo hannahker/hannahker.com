@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hannah Ker</title>
+  <meta name="description" content="Hannah Ker, Data Scientist at the OCHA Centre for Humanitarian Data.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="map" aria-hidden="true"></canvas>
+
+  <header class="masthead sr-only">
+    <h1>Hannah Ker</h1>
+    <p class="sr-only">Data Scientist, OCHA Centre for Humanitarian Data</p>
+    <nav aria-label="Sections">
+      <a href="#about" data-route="about">About</a>
+      <a href="#works" data-route="works">Selected Works</a>
+    </nav>
+    <nav id="links" class="sr-only" aria-label="Links"></nav>
+  </header>
+
+  <section class="panel" id="panel" role="dialog" aria-modal="false" aria-labelledby="panel-label" hidden>
+    <div class="panel-bar">
+      <p class="panel-label" id="panel-label"></p>
+      <button type="button" class="panel-close" aria-label="Close">close &times;</button>
+    </div>
+    <div class="panel-body" id="panel-body" tabindex="-1"></div>
+  </section>
+
+  <button type="button" class="reset-view">reset view</button>
+  <p class="hint" aria-hidden="true">drag to pan &middot; scroll to zoom</p>
+  <p class="credit">Vancouver &amp; the North Shore, 25&nbsp;m contours &middot; elevation data: <a href="https://pub.data.gov.bc.ca/datasets/175624/" target="_blank" rel="noopener">BC Data Catalogue</a></p>
+
+  <script src="contours-data.js"></script>
+  <script src="labels.js"></script>
+  <script src="content.js"></script>
+  <script src="map.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>
