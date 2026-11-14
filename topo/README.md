@@ -5,4 +5,5 @@ Source for the topographic home page published from `../www/`.
 - `tools/`: run from this folder.
   - `dem_contours.py` builds `../www/contours-data.js` from the DEM tiles.
   - `find_lines.py` and `place_labels.py` place the nav labels and write `../www/labels.js`.
+  - `favicon.py` draws the favicons in `../www/` from a small square of the contour map.
   - `build_content.py` builds `../www/content.js` from `about.md` and the posts in `../content/`.

@@ -8,19 +8,27 @@ to = "/#about"
 
 [[redirects]]
 from = "/maps/image-post/"
-to = "/#works/image-of-london"
+to = "/#maps/image-of-london"
 
 [[redirects]]
 from = "/maps/blender/"
-to = "/#works/shaded-relief"
+to = "/#maps/shaded-relief"
 
 [[redirects]]
 from = "/research/emotion/"
-to = "/#works/emotional-cartography"
+to = "/#projects/emotional-cartography"
 
 [[redirects]]
 from = "/research/oj/"
-to = "/#works/cultural-landscapes"
+to = "/#projects/cultural-landscapes"
+
+[[redirects]]
+from = "/maps/eagles/"
+to = "/#projects/animal-movement"
+
+[[redirects]]
+from = "/research/traffic/"
+to = "/#projects/travel-time-prediction"
 
 [[redirects]]
 from = "/cv.pdf"
