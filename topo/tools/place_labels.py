@@ -14,12 +14,12 @@ from find_lines import load_lines
 LINE_KINDS = ("coast", "index", "mid")
 
 LABELS = [
-    dict(line=286, text="Hannah Ker", kind="name", size=10, at=0.9719, smooth=13),
-    dict(line=502, text="About", kind="nav", size=7, at=0.1005, smooth=9, route="about"),
-    dict(line=387, text="Selected Works", kind="nav", size=7, at=0.7178, smooth=9, route="works"),
+    dict(line=286, text="Hannah Ker", kind="name", size=10, at=0.9719, smooth=13, route="about"),
+    dict(line=502, text="Maps", kind="nav", size=7, at=0.1005, smooth=9, route="maps"),
+    dict(line=387, text="Special Projects", kind="nav", size=7, at=0.7178, smooth=9, route="projects"),
 ]
 
-PREVIEW_BOX = (1080, 20, 1260, 170)
+PREVIEW_BOX = (1080, 20, 1260, 200)
 PREVIEW_FONT = "/System/Library/Fonts/Helvetica.ttc"  # matches the page font
 
 
