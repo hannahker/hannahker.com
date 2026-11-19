@@ -26,6 +26,7 @@ const FONTS = {
 };
 
 const MIN_TARGET_PX = 24;
+const HIT_BUFFER_PX = 10;
 const isAction = (label) => Boolean(label.href || label.route);
 const currentSection = () => location.hash.slice(1).split("/")[0];
 
@@ -227,7 +228,7 @@ function drawLabels() {
     const highlighted = isAction(label) && (label === hovered || label === focused || (label.route && label.route === currentSection()));
     ctx.fillStyle = highlighted ? ACCENT : INK;
     eachGlyph(label, (g) => ctx.fillText(g.ch, 0, 0));
-    if (label === focused) {
+    if (label === focused && label.kind !== "name") {
       const thickness = 1.5 / view.k;
       eachGlyph(label, (g) => ctx.fillRect(-g.advance / 2 - 0.2, label.size * 0.62, g.advance + 0.4, thickness));
     }
@@ -243,8 +244,9 @@ function linkAt(sx, sy) {
       const dy = p.y - g.y;
       const along = dx * Math.cos(g.angle) + dy * Math.sin(g.angle);
       const across = -dx * Math.sin(g.angle) + dy * Math.cos(g.angle);
-      const reach = Math.max(label.size * 0.6, MIN_TARGET_PX / 2 / view.k);
-      if (Math.abs(along) <= g.advance / 2 + label.size * 0.15 && Math.abs(across) <= reach) return label;
+      const buffer = HIT_BUFFER_PX / view.k;
+      const reach = Math.max(label.size * 0.6 + buffer, MIN_TARGET_PX / 2 / view.k);
+      if (Math.abs(along) <= g.advance / 2 + label.size * 0.15 + buffer && Math.abs(across) <= reach) return label;
     }
   }
   return null;

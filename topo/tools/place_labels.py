@@ -15,8 +15,8 @@ LINE_KINDS = ("coast", "index", "mid")
 
 LABELS = [
     dict(line=286, text="Hannah Ker", kind="name", size=10, at=0.9719, smooth=13, route="about"),
-    dict(line=502, text="Maps", kind="nav", size=7, at=0.1005, smooth=9, route="maps"),
-    dict(line=387, text="Special Projects", kind="nav", size=7, at=0.7178, smooth=9, route="projects"),
+    dict(line=502, text="Maps", kind="nav", size=8.5, at=0.1005, smooth=9, route="maps"),
+    dict(line=387, text="Special Projects", kind="nav", size=8.5, at=0.6997, smooth=9, route="projects"),
 ]
 
 PREVIEW_BOX = (1080, 20, 1260, 200)

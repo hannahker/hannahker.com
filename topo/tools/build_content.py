@@ -22,6 +22,7 @@ IMAGES = {
     "/research/predict.png": ("svr-predictions.png", 1600, 537),
     "/research/selected_links_v2.png": ("svr-road-links.jpg", 1600, 1321),
     "/research/mape_results.png": ("svr-mape.png", 1600, 719),
+    "/projects/vancouver-guide.jpg": ("vancouver-guide.jpg", 1200, 753),
 }
 
 ALT = {
@@ -32,33 +33,38 @@ ALT = {
 }
 
 WORKS = [
-    dict(slug="emotional-cartography", source="research/emotion.md", hero="/research/map.PNG",
+    dict(slug="vancouver-guide", subtitle="Personal project, 2025", source="projects/vancouver-guide.md", hero="/projects/vancouver-guide.jpg",
+         alt="Cover of Hannah's Vancouver: a line drawing of the North Shore mountains",
+         medium="InDesign, drawing", category="projects", keep_layout=True),
+    dict(slug="emotional-cartography", subtitle="Graduate coursework, 2020", source="research/emotion.md", hero="/research/map.PNG",
          alt="Interactive map of heart rate and personal comments across central London",
          medium="R, QGIS, Leaflet", category="projects"),
-    dict(slug="cultural-landscapes", source="research/oj.md", hero="/research/orange.png",
+    dict(slug="cultural-landscapes", subtitle="Undergraduate coursework, 2018", source="research/oj.md", hero="/research/orange.png",
          alt="Ink drawing of an orange slice",
-         medium="ink, photography", category="projects"),
-    dict(slug="animal-movement", source="maps/eagles.md", hero="/posts/eagles.PNG",
+         medium="ink, photography", category="projects", keep_layout=True),
+    dict(slug="animal-movement", subtitle="Graduate coursework, 2020", source="maps/eagles.md", hero="/posts/eagles.PNG",
          alt="Web map of eagle GPS tracks along the coast of British Columbia",
          medium="Mapbox GL JS, d3.js, R", category="projects"),
-    dict(slug="travel-time-prediction", source="research/traffic.md", hero="/research/predict.png",
+    dict(slug="travel-time-prediction", subtitle="Graduate coursework, 2020", source="research/traffic.md", hero="/research/predict.png",
          alt="Chart of actual against predicted travel times for one London road link",
          medium="R, caret", category="projects"),
 ]
+ALT |= {w["hero"]: w["alt"] for w in WORKS}
 
 MAPS = [
-    dict(slug="image-of-london", title="Image of London", caption="",
-         images=["mind-map.png"],
-         alt="Hand-drawn mental map of London around Goodenough College"),
-    dict(slug="shaded-relief", title="Shaded relief", caption="",
-         images=["relief-ayacucho.jpg", "relief-british-columbia.jpg"],
-         thumb="relief-british-columbia.jpg", alt="Shaded relief maps of Ayacucho, Peru and British Columbia, Canada"),
-    dict(slug="st-lawrence", title="False colour composite", caption="",
+    dict(slug="shaded-relief-british-columbia", title="Shaded relief: British Columbia", caption="British Columbia shaded relief (2020)",
+         images=["relief-british-columbia.jpg"], alt="Shaded relief map of British Columbia, Canada"),
+    dict(slug="shaded-relief-ayacucho", title="Shaded relief: Ayacucho", caption="Ayacucho shaded relief (2020)",
+         images=["relief-ayacucho.jpg"], alt="Shaded relief map of Ayacucho, Peru"),
+    dict(slug="st-lawrence", title="False colour composite", caption="Outside Montreal false colour composite (2018)",
          images=["st-lawrence-false-colour.jpg"],
          alt="False colour satellite image of the St. Lawrence River and Lac Saint-Pierre, Quebec"),
-    dict(slug="human-modification", title="Global human modification", caption="",
+    dict(slug="human-modification", title="Global human modification", caption="Global human modification on terrestrial ecosystems (2020)",
          images=["human-modification.jpg"],
          alt="World map of the global human modification of terrestrial systems", focus="center 20%"),
+    dict(slug="image-of-london", title="Image of London", caption="Kevin Lynch inspired London :) (2019)",
+         images=["mind-map.png"],
+         alt="Hand-drawn mental map of London around Goodenough College"),
 ]
 THUMB_WIDTH = 640
 
@@ -106,14 +112,24 @@ def about():
     return to_html((TOPO / "about.md").read_text())
 
 
+def move_lead_image(body):
+    """Move a leading image and its caption to the end of the first section, so articles open with text."""
+    blocks = re.split(r"\n\s*\n", body.strip())
+    if not blocks[0].startswith("!["):
+        return body
+    n = 2 if blocks[1].startswith("<div") else 1
+    lead, rest = blocks[:n], blocks[n:]
+    headings = [i for i, b in enumerate(rest) if b.startswith("#")]
+    at = headings[1] if len(headings) > 1 else min(2, len(rest))
+    return "\n\n".join(rest[:at] + lead + rest[at:])
+
+
 def work(spec):
     title, body = read_markdown(spec["source"])
-    body = re.sub(r"!\[[^\]]*\]\(" + re.escape(spec["hero"]) + r"\)\s*", "", body, count=1).lstrip()
     body = re.sub(r"^\s*---\s*\n", "", body)
-    name, w, h = IMAGES[spec["hero"]]
-    return {k: spec[k] for k in ("slug", "alt", "medium", "category")} | {
-        "title": title, "image": f"images/{name}", "width": w, "height": h, "html": to_html(body),
-    }
+    if not spec.get("keep_layout"):
+        body = move_lead_image(body)
+    return {k: spec[k] for k in ("slug", "category")} | {"title": title, "subtitle": spec.get("subtitle", ""), "html": to_html(body)}
 
 
 content = {

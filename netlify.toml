@@ -12,7 +12,7 @@ to = "/#maps/image-of-london"
 
 [[redirects]]
 from = "/maps/blender/"
-to = "/#maps/shaded-relief"
+to = "/#maps/shaded-relief-british-columbia"
 
 [[redirects]]
 from = "/research/emotion/"

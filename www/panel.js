@@ -8,70 +8,85 @@ let returnFocus = null;
 
 const escapeHtml = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
-const CATEGORIES = { maps: "Maps", projects: "Special Projects" };
+const PROJECTS = CONTENT.works.filter((w) => w.category === "projects");
 
-const views = {
-  about: () => ({
-    label: "About",
-    html: `<article class="prose"><h2 class="sr-only">About</h2>${CONTENT.about}</article>`,
-  }),
-  maps: () => ({
-    label: "Maps",
-    html: `<h2 class="sr-only">Maps</h2><ul class="map-grid">${CONTENT.maps.map((m) => `
-      <li><a href="#maps/${m.slug}">
-        <img src="${m.thumb}" alt="" style="object-position: ${m.focus}" loading="lazy">
-        <span>${escapeHtml(m.title)}</span>
-      </a></li>`).join("")}
-    </ul>`,
-  }),
-  map: (slug) => {
-    const m = CONTENT.maps.find((x) => x.slug === slug);
-    if (!m) return null;
-    return {
-      label: `Maps &nbsp;/&nbsp; ${escapeHtml(m.title)} &nbsp;/&nbsp; <a href="#maps">all maps</a>`,
-      title: m.title,
-      html: `<h2 class="sr-only">${escapeHtml(m.title)}</h2><figure class="map-full">
-        <div class="map-images">${m.images.map((im) => `
-          <img src="${im.src}" width="${im.width}" height="${im.height}" alt="${escapeHtml(m.alt)}">`).join("")}
-        </div>
-        ${m.caption ? `<figcaption>${m.caption}</figcaption>` : ""}
-      </figure>`,
-    };
-  },
-  list: (category) => {
-    const works = CONTENT.works.filter((w) => w.category === category);
-    return {
-      label: CATEGORIES[category],
-      html: `<h2 class="sr-only">${CATEGORIES[category]}</h2>` + (works.length
-        ? `<ol class="works">${works.map((w) => `
-      <li><a href="#${category}/${w.slug}">
-        <span class="works-title">${escapeHtml(w.title)}</span>
-        <span class="works-medium">${w.medium}</span>
-      </a></li>`).join("")}
-    </ol>`
-        : `<p class="prose empty">Coming soon.</p>`),
-    };
-  },
-  work: (category, slug) => {
-    const w = CONTENT.works.find((x) => x.slug === slug && x.category === category);
-    if (!w) return null;
-    return {
-      label: `${CATEGORIES[category]} &nbsp;/&nbsp; <a href="#${category}">all ${CATEGORIES[category].toLowerCase()}</a>`,
-      title: w.title,
-      html: `<article class="prose work">
+function mapsView(slug) {
+  const maps = CONTENT.maps;
+  const start = slug ? maps.findIndex((m) => m.slug === slug) : 0;
+  if (start < 0) return null;
+  return {
+    label: `Maps &nbsp;/&nbsp; <span class="gallery-title"></span>`,
+    title: maps[start].title,
+    html: `<h2 class="sr-only">Maps</h2><div class="gallery">
+      <ul class="gallery-track" tabindex="0" aria-label="Maps">${maps.map((m, i) => `
+        <li class="gallery-slide" aria-label="${i + 1} of ${maps.length}: ${escapeHtml(m.title)}"><figure class="map-full">
+          <div class="map-images">${m.images.map((im) => `
+            <img src="${im.src}" width="${im.width}" height="${im.height}" alt="${escapeHtml(m.alt)}"${i === start ? "" : ' loading="lazy"'}>`).join("")}
+          </div>
+          ${m.caption ? `<figcaption>${m.caption}</figcaption>` : ""}
+        </figure></li>`).join("")}
+      </ul>
+      <div class="gallery-controls">
+        <button type="button" data-step="-1">&larr; previous</button>
+        <span class="gallery-count" aria-live="polite"></span>
+        <button type="button" data-step="1">next &rarr;</button>
+      </div>
+    </div>`,
+    onShow: () => initGallery(start),
+  };
+}
+
+function projectsView(slug) {
+  const i = slug ? PROJECTS.findIndex((w) => w.slug === slug) : 0;
+  const w = PROJECTS[i];
+  if (!w) return null;
+  return {
+    label: `<a href="#projects">Special Projects</a> &nbsp;/&nbsp; ${escapeHtml(w.title)}`,
+    title: w.title,
+    html: `<div class="articles">
+      <nav class="article-index" aria-label="Special projects"><ol>${PROJECTS.map((p) => `
+        <li><a href="#projects/${p.slug}"${p === w ? ' aria-current="page"' : ""}>${escapeHtml(p.title)}</a></li>`).join("")}
+      </ol></nav>
+      <article class="prose work">
         <h2>${escapeHtml(w.title)}</h2>
-        <figure class="hero"><img src="${w.image}" width="${w.width}" height="${w.height}" alt="${escapeHtml(w.alt)}"></figure>
+        ${w.subtitle ? `<p class="work-subtitle">${escapeHtml(w.subtitle)}</p>` : ""}
         ${w.html}
-      </article>`,
-    };
-  },
-};
+      </article>
+    </div>`,
+  };
+}
+
+function initGallery(start) {
+  const maps = CONTENT.maps;
+  const track = panelBody.querySelector(".gallery-track");
+  const [prev, next] = panelBody.querySelectorAll(".gallery-controls button");
+  const last = maps.length - 1;
+  let current = -1;
+
+  const show = (i) => {
+    if (i === current) return;
+    current = i;
+    panelLabel.querySelector(".gallery-title").textContent = maps[i].title;
+    panelBody.querySelector(".gallery-count").textContent = `${i + 1} / ${last + 1}`;
+    prev.disabled = i === 0;
+    next.disabled = i === last;
+    document.title = `${maps[i].title} · ${SITE_TITLE}`;
+    history.replaceState(null, "", `#maps/${maps[i].slug}`);
+  };
+  const go = (i) => track.scrollTo({ left: clamp(i, 0, last) * track.clientWidth, behavior: reducedMotion.matches ? "auto" : "smooth" });
+
+  track.scrollLeft = start * track.clientWidth;
+  show(start);
+  track.addEventListener("scroll", () => show(clamp(Math.round(track.scrollLeft / track.clientWidth), 0, last)), { passive: true });
+  prev.addEventListener("click", () => go(current - 1));
+  next.addEventListener("click", () => go(current + 1));
+}
 
 function viewFor(section, slug) {
-  if (section === "about") return views.about();
-  if (section === "maps") return slug ? views.map(slug) : views.maps();
-  if (!(section in CATEGORIES)) return null;
-  return slug ? views.work(section, slug) : views.list(section);
+  if (section === "about") return { label: "About", html: `<article class="prose"><h2 class="sr-only">About</h2>${CONTENT.about}</article>` };
+  if (section === "maps") return mapsView(slug);
+  if (section === "projects") return projectsView(slug);
+  return null;
 }
 
 function route() {
@@ -98,6 +113,7 @@ function route() {
   panel.hidden = false;
   document.body.classList.add("panel-open");
   panelBody.scrollTop = 0;
+  view.onShow?.();
   panelBody.focus({ preventScroll: true });
 }
 
@@ -110,6 +126,12 @@ function closePanel() {
 panel.querySelector(".panel-close").addEventListener("click", closePanel);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closePanel();
+  const step = { ArrowLeft: -1, ArrowRight: 1 }[e.key];
+  const button = step && !panel.hidden && panelBody.querySelector(`.gallery [data-step="${step}"]`);
+  if (button) {
+    e.preventDefault();
+    button.click();
+  }
 });
 
 window.addEventListener("hashchange", route);
