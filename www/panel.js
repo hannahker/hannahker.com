@@ -41,7 +41,7 @@ function projectsView(slug) {
   const w = PROJECTS[i];
   if (!w) return null;
   return {
-    label: `<a href="#projects">Special Projects</a> &nbsp;/&nbsp; ${escapeHtml(w.title)}`,
+    label: "Special Projects",
     title: w.title,
     html: `<div class="articles">
       <nav class="article-index" aria-label="Special projects"><ol>${PROJECTS.map((p) => `
