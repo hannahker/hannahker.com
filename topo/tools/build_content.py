@@ -52,6 +52,10 @@ WORKS = [
 ALT |= {w["hero"]: w["alt"] for w in WORKS}
 
 MAPS = [
+    dict(slug="water-1", title="Water 1", caption="Water 1 (2026)",
+         images=["water-1.jpg"], alt="Blue map of a large branching water body with smaller lakes and rivers"),
+    dict(slug="water-2", title="Water 2", caption="Water 2 (2026)",
+         images=["water-2.jpg"], alt="Red map of a lake fed by braided river channels from the north"),
     dict(slug="shaded-relief-british-columbia", title="Shaded relief: British Columbia", caption="British Columbia shaded relief (2020)",
          images=["relief-british-columbia.jpg"], alt="Shaded relief map of British Columbia, Canada"),
     dict(slug="shaded-relief-ayacucho", title="Shaded relief: Ayacucho", caption="Ayacucho shaded relief (2020)",

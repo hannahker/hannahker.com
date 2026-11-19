@@ -2,6 +2,36 @@ const CONTENT = {
  "about": "<p>I\u2019m a Data Scientist at UN OCHA\u2019s <a href=\"https://centre.humdata.org/\" target=\"_blank\" rel=\"noopener\">Centre for Humanitarian Data</a>. My work prioritizes visual communication, aiming to make multi-dimensional scientific datasets legible for non-technical audiences. I\u2019ve worked on <a href=\"https://data.humdata.org/signals\" target=\"_blank\" rel=\"noopener\">systems for automated alerting on key indicators of humanitarian interest</a>, <a href=\"https://www.unocha.org/anticipatory-action\" target=\"_blank\" rel=\"noopener\">frameworks for anticipating flooding in Nigeria</a>, and internal reporting on accountability.</p>\n<p>I previously led a team of developers at <a href=\"https://dash.plotly.com/\" target=\"_blank\" rel=\"noopener\">Plotly</a> to help clients build data-driven web apps. Project highlights included building an <a href=\"https://github.com/mlexchange/mlex_highres_segmentation\" target=\"_blank\" rel=\"noopener\">image segmentation interface</a> to help <a href=\"https://als.lbl.gov/\" target=\"_blank\" rel=\"noopener\">scientists</a> understand the molecular structure of matter, and developing new visualization capabilities in Plotly's <a href=\"https://github.com/plotly/plotly.js\" target=\"_blank\" rel=\"noopener\">JavaScript graphing library</a> to <a href=\"https://twitter.com/plotlygraphs/status/1692239116740534662/photo/1\" target=\"_blank\" rel=\"noopener\">support the work of electric vehicle engineers</a>.</p>\n<p>I have an MSc in Spatial Data Science and Visualization from UCL's <a href=\"https://www.ucl.ac.uk/bartlett/casa/\" target=\"_blank\" rel=\"noopener\">Centre for Advanced Spatial Analysis</a> and a BA in Urban Geography from McGill University. My academic interests include feminist and critical GIS, participatory mapping, and urban systems.</p>\n<p>I\u2019m based out of Vancouver, Canada.</p>\n<hr>\n<p><em>Find me on <a href=\"https://ca.linkedin.com/in/hannah-ker-991007115\" target=\"_blank\" rel=\"noopener\">Linkedin</a>, <a href=\"https://twitter.com/hannahker11\" target=\"_blank\" rel=\"noopener\">Twitter</a>, or <a href=\"https://github.com/hannahker\" target=\"_blank\" rel=\"noopener\">Github</a>.</em></p>",
  "maps": [
   {
+   "slug": "water-1",
+   "title": "Water 1",
+   "alt": "Blue map of a large branching water body with smaller lakes and rivers",
+   "images": [
+    {
+     "src": "images/water-1.jpg",
+     "width": 1806,
+     "height": 1436
+    }
+   ],
+   "thumb": "images/thumbs/water-1.jpg",
+   "focus": "center",
+   "caption": "Water 1 (2026)"
+  },
+  {
+   "slug": "water-2",
+   "title": "Water 2",
+   "alt": "Red map of a lake fed by braided river channels from the north",
+   "images": [
+    {
+     "src": "images/water-2.jpg",
+     "width": 1478,
+     "height": 1432
+    }
+   ],
+   "thumb": "images/thumbs/water-2.jpg",
+   "focus": "center",
+   "caption": "Water 2 (2026)"
+  },
+  {
    "slug": "shaded-relief-british-columbia",
    "title": "Shaded relief: British Columbia",
    "alt": "Shaded relief map of British Columbia, Canada",
